@@ -408,9 +408,9 @@ module.exports = function (express, app, connection) {
     let new_nickname = req.body.new_nickname;
     let username = req.session.username;
 
-    console.log('new_nickname: ' + new_nickname);
-    console.log('username: ' + username);
-    console.log('req.session.loggedin: ' + req.session.loggedin);
+    // console.log('new_nickname: ' + new_nickname);
+    // console.log('username: ' + username);
+    // console.log('req.session.loggedin: ' + req.session.loggedin);
 
     if (new_nickname && username && req.session.loggedin == true) {
       try {
@@ -461,22 +461,22 @@ module.exports = function (express, app, connection) {
     let new_pfp_url = req.body.new_pfp_url;
     let username = req.session.username;
 
-    console.log('new_pfp_path: ' + new_pfp_path);
-    console.log('new_pfp_url: ' + new_pfp_url);
-    console.log('username: ' + username);
-    console.log('req.session.loggedin: ' + req.session.loggedin);
+    // console.log('new_pfp_path: ' + new_pfp_path);
+    // console.log('new_pfp_url: ' + new_pfp_url);
+    // console.log('username: ' + username);
+    // console.log('req.session.loggedin: ' + req.session.loggedin);
 
     function comparePfps() {
       return new Promise((resolve) => {
-        console.log('comparing. . . ');
-        console.log('path: ' + new_pfp_path);
-        console.log('url: ' + new_pfp_url);
+        // console.log('comparing. . . ');
+        // console.log('path: ' + new_pfp_path);
+        // console.log('url: ' + new_pfp_url);
         if (new_pfp_path === '' && new_pfp_url !== '') {
-          console.log('using url ');
+          // console.log('using url ');
           let new_pfp = new_pfp_url;
           resolve(new_pfp);
         } else {
-          console.log('using path ');
+          // console.log('using path ');
           let new_pfp = new_pfp_path;
           resolve(new_pfp);
         }
@@ -543,9 +543,9 @@ module.exports = function (express, app, connection) {
     let new_theme = req.body.new_theme;
     let username = req.session.username;
 
-    console.log('new_theme: ' + new_theme);
-    console.log('username: ' + username);
-    console.log('req.session.loggedin: ' + req.session.loggedin);
+    // console.log('new_theme: ' + new_theme);
+    // console.log('username: ' + username);
+    // console.log('req.session.loggedin: ' + req.session.loggedin);
 
     if (new_theme && username && req.session.loggedin == true) {
       try {
