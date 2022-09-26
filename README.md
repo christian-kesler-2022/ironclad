@@ -13,7 +13,7 @@
         git remote add origin https://github.com/christian-kesler-2022/ironclad_2
         git pull origin main
         docker build . -t ironclad_2
-        docker run -d \
+        docker run -it \
         -e MYSQL_ROOT_PASSWORD=secret \
         -p 3000:3000 ironclad_2
 
