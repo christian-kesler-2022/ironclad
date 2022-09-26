@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node Boilerplate</title>
+  <%- include('styles/main.ejs') %>
+</head>
+
+<body>
+  <table id="layout">
+    <tbody>
+      <tr id="header">
+        <%- include('layout/header/cell/nav.ejs') %>
+          <td id="search"></td>
+          <%- include('layout/header/cell/auth.ejs') %>
+      </tr>
+      <tr id="page">
+        <td id="options"></td>
+        <%- include('layout/content/homepage.ejs') %>
+          <%- include('layout/appbar/cell.ejs') %>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

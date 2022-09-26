@@ -1,0 +1,27 @@
+{
+    "name": "ironclad",
+    "version": "1.0.0",
+    "description": "a website for my company",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/christian-kesler/ironclad.git"
+    },
+    "author": "Christian Kesler",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/christian-kesler/ironclad/issues"
+    },
+    "homepage": "https://github.com/christian-kesler/ironclad#readme",
+    "dependencies": {
+        "crypto": "^1.0.1",
+        "ejs": "^3.1.8",
+        "express": "^4.18.1",
+        "express-session": "^1.17.3",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.20"
+    }
+}

@@ -1,0 +1,25 @@
+.icon-48,
+.icon,
+.icon-medium {
+    height: 48px;
+    width: 48px;
+    margin: 4px;
+    /* border: 1px dashed grey; */
+    /* border-radius: 50%; */
+}
+
+.icon-32,
+.icon-small {
+    height: 32px;
+    width: 32px;
+    margin: 4px;
+}
+
+.pfp-128,
+.pfp-large {
+    height: 128px;
+    width: 128px;
+    margin: 4px;
+    border-radius: 50%;
+    object-fit: cover;
+}

@@ -1,0 +1,102 @@
+<td id="options">
+    <button class="account-tab <% if (tab === 'home') { %>active-tab<% } %>"
+        onclick="location.href='/account?tab=home';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_home_selected_24x24_9d6bbfa62af2a7aaa6923725ff3e2e28.png"
+            alt="" />
+        Home
+    </button>
+    <button class="
+        account-tab
+        <%
+        if
+        (tab
+        ===
+        'personal-info')
+        {
+        %>active-tab<%
+        }
+        %>
+      " onclick="location.href='/account?tab=personal-info';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_personalinfo_24x24_2b08480abc2504e2d70d74f2470f0ae0.png"
+            alt="" />
+        Personal Info
+    </button>
+    <button class="
+        account-tab
+        <%
+        if
+        (tab
+        ===
+        'data-and-privacy')
+        {
+        %>active-tab<%
+        }
+        %>
+      " onclick="location.href='/account?tab=data-and-privacy';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_data_and_personalization_24x24_1af4cbe9d198b2f4a2e94e52732d8171.png"
+            alt="" />
+        Data and Privacy
+    </button>
+    <button class="
+        account-tab
+        <%
+        if
+        (tab
+        ===
+        'security')
+        {
+        %>active-tab<%
+        }
+        %>
+      " onclick="location.href='/account?tab=security';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_security_24x24_6a1c5821b31ccd7af73a0b8ef07c6795.png"
+            alt="" />
+        Security
+    </button>
+    <button class="
+        account-tab
+        <%
+        if
+        (tab
+        ===
+        'people-and-sharing')
+        {
+        %>active-tab<%
+        }
+        %>
+      " onclick="location.href='/account?tab=people-and-sharing';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_people_and_sharing_24x24_f99bacf0b3bb6b80c1159263d4323379.png"
+            alt="" />
+        People and Sharing
+    </button>
+    <button class="
+        account-tab
+        <%
+        if
+        (tab
+        ===
+        'payments-and-subscriptions')
+        {
+        %>active-tab<%
+        }
+        %>
+      " onclick="location.href='/account?tab=payments-and-subscriptions';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_payments_24x24_c051ee9e35c41e8b0eb8235154cd4585.png"
+            alt="" />
+        Payments and Subscriptions
+    </button>
+    <hr />
+    <button class="account-tab <% if (tab === 'about') { %>active-tab<% } %>"
+        onclick="location.href='/account?tab=about';">
+        <img class="icon-small"
+            src="https://www.gstatic.com/identity/boq/accountsettingsmobile/menu_info_24x24_317a17c18099ba628fd875d5c1a5c2b3.png"
+            alt="" />
+        About
+    </button>
+</td>

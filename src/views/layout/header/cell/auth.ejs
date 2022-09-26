@@ -1,0 +1,20 @@
+<td id="auth" colspan="2">
+  <div style="display: flex; justify-content: right; align-items: center">
+    <img src="/images/security.svg" alt="Account" class="icon" />
+  </div>
+  <div class="dropdown">
+    <% if ( loggedin==false || loggedin==undefined ) { %>
+      <a href="/login">
+        <button class="auth-btn">Login</button>
+      </a>
+      <% } else { %>
+        <a href="/account?tab=home">
+          <button class="auth-btn">Account</button>
+        </a>
+        <hr>
+        <form action="/logout" method="POST">
+          <input class="auth-btn" type="submit" value="Logout">
+        </form>
+        <% } %>
+  </div>
+</td>

@@ -1,0 +1,131 @@
+#layout {
+  width: 100vw;
+  height: 100vh;
+  border-collapse: collapse;
+}
+
+/* header row */
+#layout #header {
+  height: 64px;
+}
+
+/* header columns */
+#layout #header #nav {
+  width: 16vw;
+  min-width: 128px;
+}
+
+#homeicon {
+  max-height: 48px;
+  width: auto;
+  max-width: 128px;
+}
+
+#layout #header #nav a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#layout #header #search {
+  width: 68vw;
+}
+
+#searchfield {
+  height: 32px;
+  width: 32vw;
+  padding-left: 32px;
+  border: none;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+  margin-right: 0;
+}
+
+#searchfield:focus {
+  outline: none;
+}
+
+#searchform {
+  display: inline-flex;
+}
+
+#searchgo {
+  height: 32px;
+  width: 40px;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+  border: none;
+  color: transparent;
+  margin-left: -8px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Google_Magnifying_Glass.svg') no-repeat 4px 0px;
+}
+
+/* page columns */
+#layout #page #options {
+  vertical-align: top;
+  padding: 16px;
+  padding-left: 0;
+}
+
+#layout #page #content {
+  vertical-align: top;
+  padding: 16px;
+}
+
+#layout #page #appbar {
+  width: 64px;
+  border-left: 1px solid rgb(160, 160, 160);
+}
+
+#layout #page #appbar a .icon {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#layout #header #nav,
+#layout #header #search,
+#layout #header #auth,
+#layout #page #options,
+#layout #page #content,
+#layout #page #appbar,
+#layout #footer td {
+  text-align: center;
+}
+
+/* ================================================================================== */
+
+#auth:hover .dropdown {
+  display: block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  color: white;
+  right: 0;
+  padding: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom-left-radius: 16px;
+  margin-top: 4px;
+  border-top: 1px solid grey;
+  width: 10vw;
+  min-width: 128px;
+}
+
+.auth-btn {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 100%;
+  height: auto;
+}
+
+.auth-btn,
+.auth-btn:active,
+.auth-btn:focus {
+  outline: none;
+}
