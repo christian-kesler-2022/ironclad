@@ -1,5 +1,22 @@
 # Ironclad_2
 
+## Demo Commands
+
+        docker run -d \
+        -e MYSQL_ROOT_PASSWORD=secret \
+        -e MYSQL_DATABASE=ironclad_2 \
+        mysql:5.7
+        mkdir ironclad_2
+        cd ironclad_2
+        git init
+        git branch -m main
+        git remote add origin https://github.com/christian-kesler-2022/ironclad_2
+        git pull origin main
+        docker build . -t ironclad_2
+        docker run -d \
+        -e MYSQL_ROOT_PASSWORD=secret \
+        -p 3000:3000 ironclad_2
+
 ## Dependencies
 
     cd src
