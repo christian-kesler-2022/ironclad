@@ -64,7 +64,23 @@
   vertical-align: top;
   padding: 16px;
   padding-left: 0;
+  padding: 0;
+  /* background-color: rgba(64, 64, 64, 0.25); */
+}
+
+#options-bar {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16vw;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  scrollbar-color: red yellow;
   background-color: rgba(64, 64, 64, 0.25);
+  padding: 0px;
+  font-weight: bold;
 }
 
 #layout #page #content {

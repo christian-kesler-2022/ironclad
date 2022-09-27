@@ -17,182 +17,95 @@
       <%- include('../layout/header/row.ejs') %>
 
         <tr id="page">
-          <td id="options">
-            <button class="account-tab <% if (tab === 'home') { %>active-tab<% } %>"
-              onclick="location.href='/account?tab=home';">
-              <img class="icon-small" src="/images/home.png" alt="" />
-              Home
-            </button>
-            <button class="
-                account-tab
-                <%
-                if
-                (tab
-                ===
-                'personal-info')
-                {
-                %>active-tab<%
-                }
-                %>
-              " onclick="location.href='/account?tab=personal-info';">
-              <img class="icon-small" src="/images/id-card.png" alt="" />
-              Personal Info
-            </button>
-            <button class="
-                account-tab
-                <%
-                if
-                (tab
-                ===
-                'data-and-privacy')
-                {
-                %>active-tab<%
-                }
-                %>
-              " onclick="location.href='/account?tab=data-and-privacy';">
-              <img class="icon-small" src="/images/lock.png" alt="" />
-              Privacy
-            </button>
-            <button class="
-                account-tab
-                <%
-                if
-                (tab
-                ===
-                'security')
-                {
-                %>active-tab<%
-                }
-                %>
-              " onclick="location.href='/account?tab=security';">
-              <img class="icon-small" src="/images/shield.png" alt="" />
-              Security
-            </button>
-            <button class="
-                account-tab
-                <%
-                if
-                (tab
-                ===
-                'people-and-sharing')
-                {
-                %>active-tab<%
-                }
-                %>
-              " onclick="location.href='/account?tab=people-and-sharing';">
-              <img class="icon-small" src="/images/team.png" alt="" />
-              Social
-            </button>
-            <button class="
-                account-tab
-                <%
-                if
-                (tab
-                ===
-                'payments-and-subscriptions')
-                {
-                %>active-tab<%
-                }
-                %>
-              " onclick="location.href='/account?tab=payments-and-subscriptions';">
-              <img class="icon-small" src="/images/credit-card.png" alt="" />
-              Finances
-            </button>
-            <hr />
-            <button class="account-tab <% if (tab === 'about') { %>active-tab<% } %>"
-              onclick="location.href='/account?tab=about';">
-              <img class="icon-small" src="/images/question.png" alt="" />
-              About
-            </button>
-          </td>
-          <td id="content">
-            <% try { %>
-              <span style="color:green">
-                <%- message %>
-              </span>
-              <% } catch { %>
+          <%- include('../layout/options/cell.ejs') %>
+            <td id="content">
+              <% try { %>
+                <span style="color:green">
+                  <%- message %>
                 </span>
-                <% } %>
+                <% } catch { %>
+                  </span>
+                  <% } %>
 
-                  <img class="pfp-large" src="<%- pfp %>" alt="" />
-                  <h2>Welcome,
-                    <% if (nickname==undefined) { %>
-                      user (you haven't set a nickname yet)
-                      <% } else { %>
-                        <%- nickname %>
-                          <% } %>
-                  </h2>
+                    <img class="pfp-large" src="<%- pfp %>" alt="" />
+                    <h2>Welcome,
+                      <% if (nickname==undefined) { %>
+                        user (you haven't set a nickname yet)
+                        <% } else { %>
+                          <%- nickname %>
+                            <% } %>
+                    </h2>
 
-                  <% if (tab==='home' ) { %>
-                    <hr>
-                    <h3>Change your Nickname</h3>
-                    <form action="/auth/update-nickname" method="POST">
-                      <input maxlength="255" type="text" name="new_nickname" placeholder="new nickname">
-                      <input type="submit">
-                    </form>
+                    <% if (tab==='home' ) { %>
+                      <hr>
+                      <h3>Change your Nickname</h3>
+                      <form action="/auth/update-nickname" method="POST">
+                        <input maxlength="255" type="text" name="new_nickname" placeholder="new nickname">
+                        <input type="submit">
+                      </form>
 
-                    <hr>
-                    <h3>Change your Profile Picture</h3>
-                    <form action="/auth/update-pfp" method="POST">
-                      Choose
-                      <select name="new_pfp_path">
-                        <option value="">
-                          ---
-                        </option>
-                        <option value="/images/pfps/VanGogh-Irises_3.jpg">
-                          Irises
-                        </option>
-                        <option
-                          value="/images/pfps/256px-Crustacean,_lying_on_his_back_by_Vincent_van_Gogh_(Van_Gogh_museum_photogtaph).jpg">
-                          Crab
-                        </option>
-                        <option value="/images/pfps/VanGogh-starry_night.jpg">
-                          Starry Night
-                        </option>
-                        <option value="/images/pfps/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg">
-                          Almond Blossom
-                        </option>
-                        <option value="/images/pfps/128px-Vincent_van_Gogh_-_Field_with_Poppies_(1889).jpg">
-                          Field
-                        </option>
-                        <option value="/images/pfps/128px-VanGogh-Irises_1.jpg">
-                          More Irises
-                        </option>
-                        <option value="/images/pfps/Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg">
-                          Starry Lake
-                        </option>
-                        <option
-                          value="/images/pfps/128px-Vincent_van_Gogh_-_Wheatfield_under_thunderclouds_-_Google_Art_Project.jpg">
-                          Prairie
-                        </option>
+                      <hr>
+                      <h3>Change your Profile Picture</h3>
+                      <form action="/auth/update-pfp" method="POST">
+                        Choose
+                        <select name="new_pfp_path">
+                          <option value="">
+                            ---
+                          </option>
+                          <option value="/images/pfps/VanGogh-Irises_3.jpg">
+                            Irises
+                          </option>
+                          <option
+                            value="/images/pfps/256px-Crustacean,_lying_on_his_back_by_Vincent_van_Gogh_(Van_Gogh_museum_photogtaph).jpg">
+                            Crab
+                          </option>
+                          <option value="/images/pfps/VanGogh-starry_night.jpg">
+                            Starry Night
+                          </option>
+                          <option value="/images/pfps/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg">
+                            Almond Blossom
+                          </option>
+                          <option value="/images/pfps/128px-Vincent_van_Gogh_-_Field_with_Poppies_(1889).jpg">
+                            Field
+                          </option>
+                          <option value="/images/pfps/128px-VanGogh-Irises_1.jpg">
+                            More Irises
+                          </option>
+                          <option value="/images/pfps/Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg">
+                            Starry Lake
+                          </option>
+                          <option
+                            value="/images/pfps/128px-Vincent_van_Gogh_-_Wheatfield_under_thunderclouds_-_Google_Art_Project.jpg">
+                            Prairie
+                          </option>
 
-                      </select>
-                      Or Link
-                      <input maxlength="255" type="text" name="new_pfp_url" placeholder="pfp url">
-                      <input type="submit">
-                    </form>
+                        </select>
+                        Or Link
+                        <input maxlength="255" type="text" name="new_pfp_url" placeholder="pfp url">
+                        <input type="submit">
+                      </form>
 
-                    <hr>
-                    <h3>Change this site's theme</h3>
-                    <form action="/auth/update-theme" method="POST">
-                      <select name="new_theme">
-                        <option value="">---</option>
-                        <option value="/styles/themes/light.css">Light</option>
-                        <option value="/styles/themes/dark.css">Dark</option>
-                        <option value="/styles/themes/pink.css">Pink</option>
-                        <option value="/styles/themes/earth.css">Earth</option>
-                        <option value="/styles/themes/brass.css">Brass</option>
-                        <option value="/styles/themes/gif-ocean.css">Ocean (Animated)</option>
-                        <option value="/styles/themes/gif-space.css">Space (Animated)</option>
-                        <option value="/styles/themes/gif-christmas.css">Christmas (Animated)</option>
-                        <option value="/styles/themes/gif-magma.css">Magma (Animated)</option>
+                      <hr>
+                      <h3>Change this site's theme</h3>
+                      <form action="/auth/update-theme" method="POST">
+                        <select name="new_theme">
+                          <option value="">---</option>
+                          <option value="/styles/themes/light.css">Light</option>
+                          <option value="/styles/themes/dark.css">Dark</option>
+                          <option value="/styles/themes/pink.css">Pink</option>
+                          <option value="/styles/themes/earth.css">Earth</option>
+                          <option value="/styles/themes/brass.css">Brass</option>
+                          <option value="/styles/themes/gif-ocean.css">Ocean (Animated)</option>
+                          <option value="/styles/themes/gif-space.css">Space (Animated)</option>
+                          <option value="/styles/themes/gif-christmas.css">Christmas (Animated)</option>
+                          <option value="/styles/themes/gif-magma.css">Magma (Animated)</option>
 
-                      </select>
-                      <input type="submit">
-                    </form>
-                    <% } %>
-          </td>
-          <%- include('../layout/appbar/cell.ejs') %>
+                        </select>
+                        <input type="submit">
+                      </form>
+                      <% } %>
+            </td>
+            <%- include('../layout/appbar/cell.ejs') %>
         </tr>
     </tbody>
   </table>
