@@ -1,0 +1,30 @@
+/* Background Primary */
+#layout #page,
+#searchfield {
+    background-color: #E6B325;
+}
+
+/* Background Secondary */
+#searchgo,
+input,
+select {
+    background-color: #EC994B;
+}
+
+.active-tab {
+    color: #EC994B;
+}
+
+/* Text */
+#searchfield,
+body {
+    caret-color: #61481C;
+    color: #61481C;
+}
+
+/* Header */
+#layout #header,
+.dropdown,
+.active-tab {
+    background-color: #A47E3B;
+}

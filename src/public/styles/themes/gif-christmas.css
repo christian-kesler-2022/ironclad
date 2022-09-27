@@ -1,0 +1,40 @@
+/* Background Primary */
+#layout #page,
+#searchfield {
+    background-image: url("https://i.pinimg.com/originals/4c/9b/f2/4c9bf25a605dcddfd12af2658fc7c5f7.gif");
+    background-size: cover;
+}
+
+/* Text */
+#searchfield,
+body,
+.account-tab {
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
+    caret-color: #06283D;
+    color: #06283D;
+}
+
+/* Background Secondary */
+#searchgo,
+input,
+select {
+    background-color: #f93b3b;
+}
+
+.active-tab {
+    color: #247420;
+}
+
+/* Header */
+#layout #header,
+.dropdown,
+.active-tab {
+    background-color: #0b952b;
+}
+
+
+
+#layout #page #options,
+#layout #page #appbar {
+    background-color: rgba(128, 128, 128, 0.75);
+}

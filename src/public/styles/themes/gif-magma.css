@@ -1,0 +1,33 @@
+/* Background Primary */
+#layout #page,
+#searchfield {
+    background-image: url("https://64.media.tumblr.com/7e357e40946d7f7eccab04d4ee87e117/tumblr_nkqcyn5T5K1qciqqno4_1280.gif");
+    background-size: cover;
+}
+
+/* Text */
+#searchfield,
+body,
+.account-tab {
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
+    caret-color: #06283D;
+    color: #06283D;
+}
+
+/* Background Secondary */
+#searchgo,
+input,
+select {
+    background-color: #c63b1c;
+}
+
+.active-tab {
+    color: #db5400;
+}
+
+/* Header */
+#layout #header,
+.dropdown,
+.active-tab {
+    background-color: #252c2e;
+}

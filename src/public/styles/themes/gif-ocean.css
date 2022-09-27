@@ -1,0 +1,33 @@
+/* Background Primary */
+#layout #page,
+#searchfield {
+    background-image: url("https://i.pinimg.com/originals/4a/58/30/4a583012096c4fac38ad11c1d4b7205d.gif");
+    background-size: cover;
+}
+
+/* Text */
+#searchfield,
+body,
+.account-tab {
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
+    caret-color: #06283D;
+    color: #06283D;
+}
+
+/* Background Secondary */
+#searchgo,
+input,
+select {
+    background-color: #31E1F7;
+}
+
+.active-tab {
+    color: #31E1F7;
+}
+
+/* Header */
+#layout #header,
+.dropdown,
+.active-tab {
+    background-color: #256D85;
+}

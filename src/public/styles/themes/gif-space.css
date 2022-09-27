@@ -1,0 +1,38 @@
+/* Background Primary */
+#layout #page,
+#searchfield {
+    /* background-image: url("https://i.pinimg.com/originals/bf/fe/de/bffede1d81ebe6ddb2eb3033dc86ac68.gif"); */
+    /* background-image: url("https://acegif.com/wp-content/uploads/gif/outerspace-82.gif"); */
+    background-image: url("https://img.itch.zone/aW1nLzU0Nzc4NDMuZ2lm/original/g1dIhn.gif");
+    background-size: cover;
+    /* background-color: #47B5FF; */
+}
+
+/* Text */
+#searchfield,
+body,
+.account-tab {
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
+    caret-color: #06283D;
+    color: #06283D;
+
+}
+
+/* Background Secondary */
+#searchgo,
+input,
+select {
+    background-color: #8758FF;
+}
+
+.active-tab {
+    color: #8758FF;
+}
+
+
+/* Header */
+#layout #header,
+.dropdown,
+.active-tab {
+    background-color: #25316D;
+}

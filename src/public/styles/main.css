@@ -64,6 +64,7 @@
   vertical-align: top;
   padding: 16px;
   padding-left: 0;
+  background-color: rgba(64, 64, 64, 0.25);
 }
 
 #layout #page #content {
@@ -74,6 +75,7 @@
 #layout #page #appbar {
   width: 64px;
   border-left: 1px solid rgb(160, 160, 160);
+  background-color: rgba(64, 64, 64, 0.25);
 }
 
 #layout #page #appbar a .icon {
