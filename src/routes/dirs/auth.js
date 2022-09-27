@@ -154,6 +154,7 @@ module.exports = function (express, app, connection) {
                   req.session.nickname = results[0].nickname;
                   req.session.pfp = results[0].pfp;
                   req.session.theme = results[0].theme;
+                  req.session.ip = req.socket.localAddress;
 
                   res.redirect('/account?tab=home');
                   // req.session.ip = ip;
@@ -202,6 +203,7 @@ module.exports = function (express, app, connection) {
     req.session.nickname = '';
     req.session.pfp = '';
     req.session.theme = '';
+    req.session.ip = '';
 
     res.render('auth/login', {
       loggedin: req.session.loggedin,
@@ -412,7 +414,7 @@ module.exports = function (express, app, connection) {
     // console.log('username: ' + username);
     // console.log('req.session.loggedin: ' + req.session.loggedin);
 
-    if (new_nickname && username && req.session.loggedin == true) {
+    if (new_nickname && username && req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
       try {
         await connection.query(
           'UPDATE accounts SET nickname = ? WHERE username = ?;',
@@ -485,7 +487,7 @@ module.exports = function (express, app, connection) {
 
     function writePfp(new_pfp) {
       return new Promise((resolve) => {
-        if (new_pfp && username && req.session.loggedin == true) {
+        if (new_pfp && username && req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
           try {
             connection.query(
               'UPDATE accounts SET pfp = ? WHERE username = ?;',
@@ -547,7 +549,7 @@ module.exports = function (express, app, connection) {
     // console.log('username: ' + username);
     // console.log('req.session.loggedin: ' + req.session.loggedin);
 
-    if (new_theme && username && req.session.loggedin == true) {
+    if (new_theme && username && req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
       try {
         await connection.query(
           'UPDATE accounts SET theme = ? WHERE username = ?;',

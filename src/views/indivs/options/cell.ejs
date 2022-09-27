@@ -1,0 +1,102 @@
+<td id="options">
+    <script>
+        function showOptions() {
+            document.getElementById('options-bar').style.display = 'block';
+        }
+        function hideOptions() {
+            document.getElementById('options-bar').style.display = 'none';
+        }
+    </script>
+    <div id="options-bar">
+        <img class="icon icon-48" src="https://cdn-icons-png.flaticon.com/512/93/93634.png" alt="Hide Options"
+            style="margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 32px; float: right"
+            onclick="hideOptions()" />
+        <br>
+        <button class="account-tab <% if (tab === 'home') { %>active-tab<% } %>"
+            onclick="location.href='/account?tab=home';">
+            <img class="icon icon-32" src="/images/home.png" alt="" />
+            Home
+        </button>
+        <button class="
+ account-tab
+ <%
+ if
+ (tab
+ ===
+ 'personal-info')
+ {
+ %>active-tab<%
+ }
+ %>
+ " onclick="location.href='/account?tab=personal-info';">
+            <img class="icon icon-32 " src="/images/id-card.png" alt="" />
+            Personal Info
+        </button>
+        <button class="
+ account-tab
+ <%
+ if
+ (tab
+ ===
+ 'data-and-privacy')
+ {
+ %>active-tab<%
+ }
+ %>
+ " onclick="location.href='/account?tab=data-and-privacy';">
+            <img class="icon icon-32 " src="/images/lock.png" alt="" />
+            Privacy
+        </button>
+        <button class="
+ account-tab
+ <%
+ if
+ (tab
+ ===
+ 'security')
+ {
+ %>active-tab<%
+ }
+ %>
+ " onclick="location.href='/account?tab=security';">
+            <img class="icon icon-32 " src="/images/shield.png" alt="" />
+            Security
+        </button>
+        <button class="
+ account-tab
+ <%
+ if
+ (tab
+ ===
+ 'people-and-sharing')
+ {
+ %>active-tab<%
+ }
+ %>
+ " onclick="location.href='/account?tab=people-and-sharing';">
+            <img class="icon icon-32 " src="/images/team.png" alt="" />
+            Social
+        </button>
+        <button class="
+ account-tab
+ <%
+ if
+ (tab
+ ===
+ 'payments-and-subscriptions')
+ {
+ %>active-tab<%
+ }
+ %>
+ " onclick="location.href='/account?tab=payments-and-subscriptions';">
+            <img class="icon icon-32 " src="/images/credit-card.png" alt="" />
+            Finances
+        </button>
+        <hr />
+        <button class="account-tab <% if (tab === 'about') { %>active-tab<% } %>"
+            onclick="location.href='/account?tab=about';">
+            <img class="icon icon-32 " src="/images/question.png" alt="" />
+            About
+        </button>
+    </div>
+</td>

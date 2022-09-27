@@ -34,7 +34,7 @@ select {
 
 
 
-#layout #page #options,
+#options-bar,
 #layout #page #appbar {
     background-color: rgba(128, 128, 128, 0.75);
 }
