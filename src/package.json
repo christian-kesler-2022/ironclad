@@ -1,7 +1,7 @@
 {
     "name": "ironclad",
     "version": "1.0.0",
-    "description": "a website for my company",
+    "description": "a website for authentication",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
