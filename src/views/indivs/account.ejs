@@ -8,13 +8,13 @@
   <title>Node Boilerplate</title>
   <link rel="stylesheet" href="/styles/account.css">
 
-  <%- include('styles/main.ejs') %>
+  <%- include('styles.ejs') %>
 </head>
 
 <body>
   <table id="layout">
     <tbody>
-      <%- include('layout/header/row.ejs') %>
+      <%- include('../layout/header/row.ejs') %>
 
         <tr id="page">
           <td id="options">
@@ -192,7 +192,7 @@
                     </form>
                     <% } %>
           </td>
-          <%- include('layout/appbar/cell.ejs') %>
+          <%- include('../layout/appbar/cell.ejs') %>
         </tr>
     </tbody>
   </table>
