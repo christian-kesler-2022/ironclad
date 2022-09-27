@@ -2,7 +2,7 @@ var url = require('url');
 var crypto = require('crypto');
 
 module.exports = function (express, app, connection) {
-  app.get('/register', function (req, res) {
+  app.get('/auth/register', function (req, res) {
     res.render('auth/register', {
       loggedin: req.session.loggedin,
       username: req.session.username,
@@ -12,7 +12,7 @@ module.exports = function (express, app, connection) {
     });
   });
 
-  app.post('/register', async function (req, res) {
+  app.post('/auth/register', async function (req, res) {
     let email = req.body.email;
     let username = req.body.username;
     let password = req.body.password1;
@@ -116,7 +116,7 @@ module.exports = function (express, app, connection) {
     await validateRegistration(email, username, password, completeRegistration);
   });
 
-  app.get('/login', function (req, res) {
+  app.get('/auth/login', function (req, res) {
     res.render('auth/login', {
       loggedin: req.session.loggedin,
       username: req.session.username,
@@ -126,7 +126,7 @@ module.exports = function (express, app, connection) {
     });
   });
 
-  app.post('/login', function (req, res) {
+  app.post('/auth/login', function (req, res) {
     let username = req.body.username;
     let password = req.body.password;
 
@@ -196,7 +196,7 @@ module.exports = function (express, app, connection) {
     }
   });
 
-  app.post('/logout', function (req, res) {
+  app.post('/auth/logout', function (req, res) {
     req.session.loggedin = false;
     req.session.username = '';
     req.session.nickname = '';
@@ -213,7 +213,7 @@ module.exports = function (express, app, connection) {
     });
   });
 
-  app.get('/forgot-password', function (req, res) {
+  app.get('/auth/forgot-password', function (req, res) {
     res.render('auth/forgot-password', {
       loggedin: req.session.loggedin,
       username: req.session.username,
@@ -223,7 +223,7 @@ module.exports = function (express, app, connection) {
     });
   });
 
-  app.post('/forgot-password', async function (req, res) {
+  app.post('/auth/forgot-password', async function (req, res) {
     let identifier = req.body.identifier;
 
     let reset_salt = crypto.randomBytes(16).toString('hex');
@@ -286,7 +286,7 @@ module.exports = function (express, app, connection) {
               pfp: req.session.pfp,
               theme: req.session.theme,
               green_message: `Email sent, please check your inbox<br>
-                        <a href="/reset-password?email=${email}&username=${username}&reset_key=${reset_salt}">Reset Link</a>`,
+                        <a href="/auth/reset-password?email=${email}&username=${username}&reset_key=${reset_salt}">Reset Link</a>`,
             });
           }
         );
@@ -304,7 +304,7 @@ module.exports = function (express, app, connection) {
     await getAccount(identifier, reset_salt, setReset);
   });
 
-  app.get('/reset-password', function (req, res) {
+  app.get('/auth/reset-password', function (req, res) {
     const queryObject = url.parse(req.url, true).query;
 
     let username = queryObject.username;
@@ -350,7 +350,7 @@ module.exports = function (express, app, connection) {
     }
   });
 
-  app.post('/reset-password', async function (req, res) {
+  app.post('/auth/reset-password', async function (req, res) {
     let email = req.body.email;
     let username = req.body.username;
     let reset_key = req.body.reset_key;
@@ -375,7 +375,7 @@ module.exports = function (express, app, connection) {
                 pfp: req.session.pfp,
                 theme: req.session.theme,
                 green_message:
-                  'Password changed, please Login <a href="/login">here</a>',
+                  'Password changed, please Login <a href="/auth/login">here</a>',
               });
             } else {
               res.render('auth/error', {
@@ -404,7 +404,7 @@ module.exports = function (express, app, connection) {
     }
   });
 
-  app.post('/update-nickname', async function (req, res) {
+  app.post('/auth/update-nickname', async function (req, res) {
     let new_nickname = req.body.new_nickname;
     let username = req.session.username;
 
@@ -456,7 +456,7 @@ module.exports = function (express, app, connection) {
     }
   });
 
-  app.post('/update-pfp', async function (req, res) {
+  app.post('/auth/update-pfp', async function (req, res) {
     let new_pfp_path = req.body.new_pfp_path;
     let new_pfp_url = req.body.new_pfp_url;
     let username = req.session.username;
@@ -539,7 +539,7 @@ module.exports = function (express, app, connection) {
     comparePfps().then((new_pfp) => writePfp(new_pfp));
   });
 
-  app.post('/update-theme', async function (req, res) {
+  app.post('/auth/update-theme', async function (req, res) {
     let new_theme = req.body.new_theme;
     let username = req.session.username;
 

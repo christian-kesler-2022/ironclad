@@ -22,7 +22,7 @@
                     <td id="options"></td>
                     <td id="content">
                         Don't have an account yet?
-                        <a href="/register">
+                        <a href="/auth/register">
                             <h5>Sign Up Here</h5>
                         </a>
                         <div class="login">
@@ -40,7 +40,7 @@
 
                                             <h1>Login</h1>
 
-                                            <form action="/login" method="post">
+                                            <form action="/auth/login" method="post">
                                                 <label for="username">
                                                     <!-- font awesome icon -->
                                                     <i class="fas fa-user"></i>
@@ -52,7 +52,7 @@
                                                 </label>
                                                 <input type="password" name="password" placeholder="Password"
                                                     id="password" required />
-                                                <a href="/forgot-password">Forgot Password?</a>
+                                                <a href="/auth/forgot-password">Forgot Password?</a>
                                                 <input type="submit" value="Login" />
 
                                             </form>

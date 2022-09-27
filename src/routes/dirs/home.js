@@ -1,5 +1,3 @@
-var url = require('url');
-
 module.exports = function (express, app) {
     app.get('/', function (req, res) {
         console.log(req.session.loggedin);

@@ -4,7 +4,7 @@
   </div>
   <div class="dropdown">
     <% if ( loggedin==false || loggedin==undefined ) { %>
-      <a href="/login">
+      <a href="/auth/login">
         <button class="auth-btn">Login</button>
       </a>
       <% } else { %>
@@ -12,7 +12,7 @@
           <button class="auth-btn">Account</button>
         </a>
         <hr>
-        <form action="/logout" method="POST">
+        <form action="/auth/logout" method="POST">
           <input class="auth-btn" type="submit" value="Logout">
         </form>
         <% } %>

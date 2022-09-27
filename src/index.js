@@ -1,24 +1,25 @@
 var express = require('express');
 
-const sqlt = require('./utils/sqlt.js');
+// importing utils
+const sqlinit = require('./utils/sqlinit.js');
+const config = require('./utils/config.js');
 
-const config = require('./routes/config.js');
+// importing routes
 const public = require('./routes/public.js');
+const root = require('./routes/root.js');
+const auth = require('./routes/dirs/auth.js');
 
-const main = require('./routes/main.js');
-const auth = require('./routes/auth.js');
-const account = require('./routes/account.js');
-
-const connection = sqlt.initialize();
-
+// initializing app
 var app = express();
 
+// initializaing utils
+const connection = sqlinit.initialize();
 config(express, app)
+
+// initializing routes
 public(express, app);
-
-main(express, app)
+root(express, app)
 auth(express, app, connection)
-account(express, app)
 
-
+// starting server
 app.listen(3000);
