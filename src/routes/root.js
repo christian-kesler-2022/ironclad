@@ -19,7 +19,7 @@ module.exports = function (express, app) {
         if (req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
             if (queryObject.tab !== undefined) {
                 if (queryObject.tab === 'home' || queryObject.tab === 'personal-info' || queryObject.tab === 'data-and-privacy' || queryObject.tab === 'security' || queryObject.tab === 'people-and-sharing' || queryObject.tab === 'payments-and-subscriptions' || queryObject.tab === 'about') {
-                    res.render('indivs/account', {
+                    res.render('_indivs/account', {
                         loggedin: req.session.loggedin,
                         username: req.session.username,
                         nickname: req.session.nickname,
@@ -40,7 +40,7 @@ module.exports = function (express, app) {
     });
 
     app.get('/search', function (req, res) {
-        res.render('indivs/search', {
+        res.render('_indivs/search', {
             loggedin: req.session.loggedin,
             username: req.session.username,
             nickname: req.session.nickname,
