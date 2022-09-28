@@ -2,6 +2,7 @@ var url = require('url');
 
 module.exports = function (express, app) {
     app.get('/', function (req, res) {
+        req.session.touch()
         console.log(req.session.loggedin);
         console.log(req.socket.localAddress);
         console.log(req.session.ip);
