@@ -118,10 +118,33 @@
 
 code {
   background-color: black;
-  padding: 8px;
+  padding: 16px;
+  padding-bottom: 8px;
   /* text-shadow: none; */
   width: 100%;
   display: flex;
+}
+
+code p {
+  width: 92%;
+}
+
+.copy-btn {
+  float: right;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-image: url('/images/clipboard.png');
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  outline: none;
+  margin-left: auto;
+}
+
+.copy-btn:active {
+  outline: none;
+  background-image: url('/images/checkmark.png');
 }
 
 #layout #page #appbar {

@@ -9,12 +9,26 @@
         I did notice a few important changes that have to be made for this to work in Podman, which are as follows. To
         actually pull and run the image, use this command:
         <code>
-            docker run --detach --net host --mount type=volume, src=jirahome,target=/var/atlassian/jira --publish 8080:8080 docker.io/cptactionhawk/atlassion-jira:latest
+            <p id="code1">
+                docker run --detach --net host --mount type=volume, src=jirahome,target=/var/atlassian/jira --publish 8080:8080 docker.io/cptactionhawk/atlassion-jira:latest
+            </p>
+            <button 
+                id="copy1" 
+                onclick="copyToClipboard('#code1', 'copy1')" 
+                class="copy-btn">
+            </button>
         </code>
         This command allows podman to recognize docker io and successfully mount the volume. Once it's done, you can
         navigate to
         <code>
-            localhost:8080
+            <p id="code2">
+                localhost:8080
+            </p>
+            <button 
+                id="copy2" 
+                onclick="copyToClipboard('#code2', 'copy2')" 
+                class="copy-btn">
+            </button>
         </code>
         in your browser and connect your Jira account. Unfortunately, it does require internet access to setup at the
         least; I have yet to test it in regards to connectivity once setup is complete.

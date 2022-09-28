@@ -1,0 +1,11 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    function copyToClipboard(code, copy) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(code).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        document.getElementById(copy).style.backgroundImage = "url('/images/checkmark.png')";
+    }
+</script>

@@ -31,13 +31,10 @@
 
     sudo su
 
-<br>
+<br> 
 
     sudo apt install podman
     alias docker=podman
-
-<br>
-
     docker pull docker.io/mysql:5.7
     docker run -d \
             -e MYSQL_ROOT_PASSWORD=secret \
