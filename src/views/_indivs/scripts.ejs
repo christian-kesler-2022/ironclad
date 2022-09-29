@@ -12,9 +12,10 @@
         var $temp = $("<textarea>");
         var brRegex = /<br\s*[\/]?>/gi;
         $("body").append($temp);
-        $temp.val($(element).html().replace(brRegex, "\r\n").replace(/</g, "&lt;").replace(/>/g, "&gt;")).select();
+        $temp.val($(element).html().replaceAll("&lt;", '<').replaceAll("&gt;", '>').replace(brRegex, "\r\n")).select();
         document.execCommand("copy");
         $temp.remove();
         document.getElementById(copy).style.backgroundImage = "url('/images/checkmark.png')";
     }
 </script>
+
