@@ -133,6 +133,7 @@ code {
 }
 code p {
   width: 92%;
+  /* white-space: pre-wrap; */
 }
 .copy-btn {
   float: right;

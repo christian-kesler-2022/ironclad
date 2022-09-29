@@ -1,0 +1,130 @@
+<%- include('../../_layout/_meta/pagewrap-start') %>
+
+  <div id="content-wrapper">
+    <center>
+      <h4>Docker: Exporting and Importing container images</h4>
+    </center>
+    <hr>
+    This guide aims at building a Docker container, exporting it to a .tar file, deleting the image, purging the source code, importing the image from the .tar file, and running the container.  The commands below include links to an example repo that allows for an easy test to be conducted, assumes git is installed, and assumes a directory structure identical to that on <a target="_blank" href="https://labs.play-with-docker.com">Play with Docker</a> (which I recommend for container testing purposes).  
+    <hr>
+    There are several things that need to be accomplished in this step.  First, we make directories for the source code and the exported images.  Then, we pull the source code into said directory using git.  Next, we build the Docker image and export both the NodeJS image and our custom image (if you are using a different runtime like Python, then you'll need to export that rather than NodeJS along with your custom container) into the directory we previously made.  Lastly, we verify that the exported image files do exist.  
+    <code>
+      <p id="code1">
+        clear
+        <br>
+        mkdir node-example-server
+        <br>
+        mkdir docker-offline
+        <br>
+        cd node-example-server
+        <br><br>
+        git init
+        <br>
+        git branch -m main
+        <br>
+        git remote add origin https://github.com/christian-kesler-2022/node-example-server
+        <br>
+        git pull origin main
+        <br><br>
+        docker build . -t node-example-server
+        <br>
+        docker save node-example-server > ../docker-offline/node-example-server.tar
+        <br>
+        docker save node > ../docker-offline/node.tar
+        <br><br>
+        cd ../docker-offline
+        <br>
+        clear
+        <br>
+        pwd
+        <br>
+        ls -l
+      </p>
+      <button 
+        id="copy1" 
+        onclick="copyToClipboard('#code1', 'copy1')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now we need to delete the image that is saved within Docker.
+    <code>
+      <p id="code2">
+        clear
+        <br>
+        docker image rm -f node-example-server
+        <br>
+        docker image rm -f node
+        <br>
+        docker image rm -f 954cea825b78
+        <br>
+        clear
+        <br>
+        docker image ls
+      </p>
+      <button 
+        id="copy2" 
+        onclick="copyToClipboard('#code2', 'copy2')" 
+        class="copy-btn">
+      </button>
+    </code>
+    With the images gone, it's time to purge the source code.
+    <code>
+      <p id="code3">
+        clear
+        <br>
+        mv ../node-example-server/src/model ./model
+        <br>
+        rm -r ../node-example-server
+        <br>
+        cd ..
+        <br>
+        clear
+        <br>
+        pwd
+        <br>
+        ls -la
+      </p>
+      <button 
+        id="copy3" 
+        onclick="copyToClipboard('#code3', 'copy3')" 
+        class="copy-btn">
+      </button>
+    </code>
+    With the Docker images and source code gone, we can import from the .tar files.
+    <code>
+      <p id="code4">
+        clear
+        <br>
+        cd docker-offline
+        <br>
+        docker load --input node.tar
+        <br>
+        docker load --input node-example-server.tar
+        <br>
+        clear
+        <br>
+        docker image ls
+      </p>
+      <button 
+        id="copy4" 
+        onclick="copyToClipboard('#code4', 'copy4')" 
+        class="copy-btn">
+      </button>
+    </code>
+    The last step involves running the actual container to verify everything worked as expected.
+        <code>
+      <p id="code5">
+        clear
+        <br>
+        docker run -d -p 1000:1000 -v /root/docker-offline/model:/src/model node-example-server
+      </p>
+      <button 
+        id="copy5" 
+        onclick="copyToClipboard('#code5', 'copy5')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now you can navigate to port 1000 and see the server working for yourself.  
+  </div>
+<%- include('../../_layout/_meta/pagewrap-end') %>
+
