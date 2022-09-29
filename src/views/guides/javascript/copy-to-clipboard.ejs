@@ -10,29 +10,29 @@
     There are a couple of things we need to do in order to make this work.  We'll need a code element, a paragraph element, a button, an image, and a js function.  Let's get started by creating the html architecture.
     <code>
       <p id="code1">&lt;code&gt;<br>&emsp;&lt;p id="code1"&gt; TEXT TO COPY GOES HERE &lt;/p&gt;<br>&emsp;&lt;button <br>&emsp;&emsp;id="copy1" <br>&emsp;&emsp;onclick="copyToClipboard('p#code1', 'copy1')" <br>&emsp;&emsp;class="copy-btn"&gt;<br>&emsp;&lt;/button&gt;<br>&lt;/code&gt;</p>
-      <!-- <button 
+      <button 
         id="copy1" 
         onclick="copyToClipboard('p#code1', 'copy1')" 
         class="copy-btn">
-      </button> -->
+      </button>
     </code>
     It's ugly right now, so let's fix that.  Add the following styling.  You can put this is a separate file or within some &lt;style&gt; tags.
     <code>
       <p id="code2">code {<br>&emsp;background-color: black;<br>&emsp;padding: 16px;<br>&emsp;padding-bottom: 8px;<br>&emsp;text-shadow: none;<br>&emsp;width: 96%;<br>&emsp;display: flex;<br>&emsp;border-radius: 4px;<br>&emsp;margin: 16px;<br>}<br>code p {<br>&emsp;width: 92%;<br>}<br>.copy-btn {<br>&emsp;width: 32px;<br>&emsp;height: 32px;<br>&emsp;cursor: pointer;<br>&emsp;background-image: url('/images/clipboard.png');<br>&emsp;background-size: cover;<br>&emsp;background-color: rgba(255, 255, 255, 0.5);<br>&emsp;border-radius: 4px;<br>&emsp;outline: none;<br>&emsp;margin-left: auto;<br>}<br>.copy-btn:active {<br>&emsp;outline: none;<br>&emsp;background-image: url('/images/checkmark.png');<br>}</p>
-      <!-- <button 
+      <button 
         id="copy2" 
         onclick="copyToClipboard('p#code2', 'copy2')" 
         class="copy-btn">
-      </button> -->
+      </button>
     </code>
     And lastly we need to actually define the function.  The following works well for me, and even keeps the line breaks from the original text.  I found it on StackOverflow <a target="_blank" href="https://stackoverflow.com/questions/46041831/copy-to-clipboard-with-break-line">here</a>.  You can put this is a separate file or within some &lt;script&gt; tags.
     <code>
       <p id="code3"><br>function copyToClipboard(element, copy) {<br>&emsp;var $temp = $("&lt;textarea&gt;");<br>&emsp;var brRegex = /<br\s*[\/]?>/gi;<br>&emsp;$("body").append($temp);<br>&emsp;$temp.val($(element).html().replace(brRegex, "\r\n")).select();<br>&emsp;document.execCommand("copy");<br>&emsp;$temp.remove();<br>&emsp;document.getElementById(copy).style.backgroundImage = "url('/images/checkmark.png')";<br>}</p>
-      <!-- <button 
+      <button 
         id="copy3" 
         onclick="copyToClipboard('p#code3', 'copy3')" 
         class="copy-btn">
-      </button> -->
+      </button>
     </code>  
   </div>
 <%- include('../../_layout/_meta/pagewrap-end') %>
