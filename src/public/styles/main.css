@@ -125,7 +125,7 @@ code {
   background-color: black;
   padding: 16px;
   padding-bottom: 8px;
-  /* text-shadow: none; */
+  text-shadow: none;
   width: 96%;
   display: flex;
   border-radius: 4px;
@@ -136,7 +136,6 @@ code p {
   /* white-space: pre-wrap; */
 }
 .copy-btn {
-  float: right;
   width: 32px;
   height: 32px;
   cursor: pointer;

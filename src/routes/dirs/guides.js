@@ -28,6 +28,15 @@ module.exports = function (express, app) {
       theme: req.session.theme,
     });
   });
+  app.get('/guides/javascript/copy-to-clipboard', function (req, res) {
+    res.render('guides/javascript/copy-to-clipboard', {
+      loggedin: req.session.loggedin,
+      username: req.session.username,
+      nickname: req.session.nickname,
+      pfp: req.session.pfp,
+      theme: req.session.theme,
+    });
+  });
 
   app.get('/guides/docker/export-and-import', function (req, res) {
     res.render('guides/docker/export-and-import', {

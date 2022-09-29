@@ -1,9 +1,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
-    function copyToClipboard(code, copy) {
-        var $temp = $("<input>");
+    function escape(htmlStr) {
+        return htmlStr.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");        
+    }
+
+    function copyToClipboard(element, copy) {
+        var $temp = $("<textarea>");
+        var brRegex = /<br\s*[\/]?>/gi;
         $("body").append($temp);
-        $temp.val($(code).text()).select();
+        $temp.val($(element).html().replace(brRegex, "\r\n")).select();
         document.execCommand("copy");
         $temp.remove();
         document.getElementById(copy).style.backgroundImage = "url('/images/checkmark.png')";
