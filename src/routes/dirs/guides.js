@@ -57,4 +57,14 @@ module.exports = function (express, app) {
       theme: req.session.theme,
     });
   });
+
+  app.get('/guides/nodejs/xml-validation', function (req, res) {
+    res.render('guides/nodejs/xml-validation', {
+      loggedin: req.session.loggedin,
+      username: req.session.username,
+      nickname: req.session.nickname,
+      pfp: req.session.pfp,
+      theme: req.session.theme,
+    });
+  });
 };

@@ -1,0 +1,60 @@
+<%- include('../../_layout/_meta/pagewrap-start') %>
+
+  <div id="content-wrapper">
+    <center>
+      <h4>XML Validation in NodeJS</h4>
+    </center>
+    <hr>
+    This guide aims at validation an .xml file against an .xsd file using NodeJS.  
+    <hr>
+    We need the xmllint package before we get started, so go ahead and run the following command within your project directory.
+    <code>
+      <p id="code1">npm install xmllint</p>
+      <button 
+        id="copy1" 
+        onclick="copyToClipboard('p#code1', 'copy1')" 
+        class="copy-btn">
+      </button>
+    </code>
+    In the js file we plan to use, we need to import the xmllint and fs packages.  At the top of your js file add the following lines.
+    <code>
+      <p id="code2">var fs = require('fs');<br>var xmllint = require('xmllint');</p>
+      <button 
+        id="copy2" 
+        onclick="copyToClipboard('p#code2', 'copy2')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now we need to read and save the data from our xml and xsd files, which are assumed to be in the same directory.
+    <code>
+      <p id="code3">var xmlData = fs.readFileSync(__dirname + '/data.xml', 'utf8');<br>var schemaData = fs.readFileSync(__dirname + '/schema.xsd', 'utf8');</p>
+      <button 
+        id="copy3" 
+        onclick="copyToClipboard('p#code3', 'copy3')" 
+        class="copy-btn">
+      </button>
+    </code>
+    With the data 'in hand', we can now perform the validation.
+    <code>
+      <p id="code4">var result = xmllint.validateXML({<br>&emsp;xml: xmlData,<br>&emsp;schema: schemaData,<br>});</p>
+      <button 
+        id="copy4" 
+        onclick="copyToClipboard('p#code4', 'copy4')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Lastly, we need to check the results and send some ouput to the console.  
+    <code>
+      <p id="code5">if (!result.errors) {<br>&emsp;console.log('looks good!');<br>} else {<br>&emsp;console.log('errors!');<br>&emsp;console.log(result.errors);<br>}</p>
+      <button 
+        id="copy5" 
+        onclick="copyToClipboard('p#code5', 'copy5')" 
+        class="copy-btn">
+      </button>
+    </code>
+    With these short lines of code you should be all set to validate xml files against a schema in NodeJS.  
+    <hr>
+    Small note here, the xmllint module likes to exit the terminal once it's done executing.  If you are running a server, then you'll need something like the supervisor package to keep your server from going down every time xmllint is used.  
+  </div>
+<%- include('../../_layout/_meta/pagewrap-end') %>
+
