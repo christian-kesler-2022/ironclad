@@ -48,7 +48,7 @@ module.exports = function (express, app) {
     });
   });
 
-  app.get('/guides/git/credential-helper  ', function (req, res) {
+  app.get('/guides/git/credential-helper', function (req, res) {
     res.render('guides/git/credential-helper', {
       loggedin: req.session.loggedin,
       username: req.session.username,
@@ -57,6 +57,4 @@ module.exports = function (express, app) {
       theme: req.session.theme,
     });
   });
-
 };
-
