@@ -2,7 +2,7 @@
 
 ## TODO
 
-TESTING
+Convert header to overlay-top using z-index and calc to dynamically adjust relational positions.
 
 ## Demo Commands
 
@@ -35,7 +35,7 @@ TESTING
 
     sudo su
 
-<br> 
+<br>
 
     sudo apt install podman
     alias docker=podman
@@ -67,4 +67,3 @@ TESTING
     `updated_at` DATETIME NULL,
     `deleted_at` DATETIME NULL,
     PRIMARY KEY (`id`));
-
