@@ -6,20 +6,20 @@ TESTING
 
 ## Demo Commands
 
-        docker run -d \
-        -e MYSQL_ROOT_PASSWORD=secret \
-        -e MYSQL_DATABASE=ironclad \
-        mysql:5.7
-        mkdir ironclad
-        cd ironclad
-        git init
-        git branch -m main
-        git remote add origin https://github.com/christian-kesler-2022/ironclad
-        git pull origin main
-        docker build . -t ironclad
-        docker run -it \
-        -e MYSQL_ROOT_PASSWORD=secret \
-        -p 3000:3000 ironclad
+    docker run -d \
+    -e MYSQL_ROOT_PASSWORD=secret \
+    -e MYSQL_DATABASE=ironclad \
+    mysql:5.7
+    mkdir ironclad
+    cd ironclad
+    git init
+    git branch -m main
+    git remote add origin https://github.com/christian-kesler-2022/ironclad
+    git pull origin main
+    docker build . -t ironclad
+    docker run -it \
+    -e MYSQL_ROOT_PASSWORD=secret \
+    -p 3000:3000 ironclad
 
 ## Dependencies
 
@@ -41,9 +41,9 @@ TESTING
     alias docker=podman
     docker pull docker.io/mysql:5.7
     docker run -d \
-            -e MYSQL_ROOT_PASSWORD=secret \
-            -e MYSQL_DATABASE=ironclad \
-            mysql:5.7
+        -e MYSQL_ROOT_PASSWORD=secret \
+        -e MYSQL_DATABASE=ironclad \
+        mysql:5.7
     docker ps
 
 <br>
