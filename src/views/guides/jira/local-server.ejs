@@ -1,16 +1,24 @@
 <%- include('../../_layout/_meta/pagewrap-start') %>
 
     <div id="content-wrapper">
-        Here is a guide on using Jira in a local container
+        <center>
+            <h4>Jira in Docker</h4>
+        </center>
         <hr>
-        Here's a helpful link <a
-            href="https://community.atlassian.com/t5/Jira-articles/How-to-run-Jira-in-a-docker-container/ba-p/752697">https://community.atlassian.com/t5/Jira-articles/How-to-run-Jira-in-a-docker-container/ba-p/752697</a>
+        This guide aims at running a Jira server in a local Docker container. The link below is a great starting point
+        where I learned the overall process before having to make tweaks.
+        <br>
+        <a href="https://community.atlassian.com/t5/Jira-articles/How-to-run-Jira-in-a-docker-container/ba-p/752697">
+            https://community.atlassian.com/t5/Jira-articles/How-to-run-Jira-in-a-docker-container/ba-p/752697
+        </a>
         <hr>
-        I did notice a few important changes that have to be made for this to work in Podman, which are as follows. To
-        actually pull and run the image, use this command:
+        The above guide is pretty good, but it doesn't quite work for Podman users. I haven't tested this in actual
+        Docker, but I can say that the following commands works with Podman in Ubuntu 20.10 and Ubuntu 22.04. Before you
+        can actually run any of these commands, you need to login as the super user. Open up a terminal and run the
+        following command, entering your password when prompted.
         <code>
             <p id="code1">
-                docker run --detach --net host --mount type=volume,src=jirahome,target=/var/atlassian/jira --publish 8080:8080 docker.io/cptactionhank/atlassian-jira:latest
+                sudo su
             </p>
             <button 
                 id="copy1" 
@@ -18,11 +26,13 @@
                 class="copy-btn">
             </button>
         </code>
-        This command allows podman to recognize docker io and successfully mount the volume. Once it's done, you can
-        navigate to
+        Now you have permission to do stuff. Even if you have podman installed already, run the following command to
+        check for updates and setup the command alias.
         <code>
             <p id="code2">
-                localhost:8080
+                sudo apt install podman
+                <br>
+                alias docker=podman
             </p>
             <button 
                 id="copy2" 
@@ -30,7 +40,47 @@
                 class="copy-btn">
             </button>
         </code>
-        in your browser and connect your Jira account. Unfortunately, it does require internet access to setup at the
-        least; I have yet to test it in regards to connectivity once setup is complete.
+
+
+
+
+        To get the volume setup, run the following command:
+        <code>
+            <p id="code3">
+                docker volume create jiraserver
+            </p>
+            <button 
+                id="copy3" 
+                onclick="copyToClipboard('#code3', 'copy3')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Next we need to tell podman how to recognize docker io and successfully mount the volume. To actually pull and
+        run the image, use this command:
+        <code>
+            <p id="code4">
+                docker run --detach --net host --mount type=volume,src=jiraserver,target=/var/atlassian/jira --publish 8080:8080 docker.io/cptactionhank/atlassian-jira:latest
+            </p>
+            <button 
+                id="copy4" 
+                onclick="copyToClipboard('#code4', 'copy4')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Once it's done, you can navigate to
+        <code>
+            <p id="code5">
+                localhost:8080
+            </p>
+            <button 
+                id="copy5" 
+                onclick="copyToClipboard('#code5', 'copy5')" 
+                class="copy-btn">
+            </button>
+        </code>
+        in your browser and connect your Jira account. Unfortunately, it requires a license key which I *assume* is a
+        paid product. Looking into this led me to believe you can get a free license key via free trial, but hours of
+        digging on Jira itself for the actual license key yielded nothing. It seems likely that a paid subscription of
+        some kind is needed (even if the first billing period is free) in order to use this container effectively.
     </div>
     <%- include('../../_layout/_meta/pagewrap-end') %>
