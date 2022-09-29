@@ -1,0 +1,93 @@
+/* 
+  This stylesheet is for the page overlays, of which there are three; overlay-top, overlay-left, and overlay-right.
+
+  overlay-top functions as the header, containing from left to right the site navigation, search form, and authentication links.
+  overlay-left functions as a navigation quick list and as an options bar while inside a user account.
+  overlay-right functions as an app bar, but may gain additional functionality in the future.
+*/
+#overlay-top {
+  position: absolute;
+  width: 99vw;
+  height: 64px;
+  z-index: 9;
+  text-align: center;
+}
+#overlay-top table,
+#overlay-top table tr {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+#overlay-top table tr .left {
+  width: 16vw;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+#overlay-top table tr .right {
+  width: 15vw;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+#overlay-top table tr .center {
+  width: 68vw;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+}
+
+#overlay-right,
+#overlay-left {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  /* height: calc(100vh - 64px); */
+  padding-top: 80px;
+}
+#overlay-left {
+  padding: 16px;
+  padding-left: 0;
+  display: block;
+  left: 0;
+  width: 16vw;
+  min-width: 128px;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: rgba(64, 64, 64, 0.25);
+  font-weight: bold;
+}
+.options-link {
+  width: 100%;
+  height: 64px;
+  border-bottom-right-radius: 24px;
+  border-top-right-radius: 24px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  text-align: left;
+  padding-left: 16px;
+  font-weight: 900;
+  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5),
+    1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5),
+    1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+.options-link:focus {
+  outline: none;
+}
+
+#overlay-right {
+  right: 0;
+  width: 64px;
+  border-left: 1px solid rgb(160, 160, 160);
+  background-color: rgba(64, 64, 64, 0.25);
+  text-align: center;
+}
+
+#appbar a .icon {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

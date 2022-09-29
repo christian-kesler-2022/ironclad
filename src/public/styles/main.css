@@ -23,7 +23,7 @@ body {
   width: 16vw;
   min-width: 128px;
 }
-#layout #header #nav #homeicon {
+#homeicon {
   max-height: 48px;
   width: auto;
   max-width: 128px;
@@ -32,9 +32,6 @@ body {
 
 /* vvvvvvvvvvvvvvvv */
 /* <td id="search"> */
-#layout #header #search {
-  width: 68vw;
-}
 #searchfield {
   height: 32px;
   width: 32vw;
@@ -110,10 +107,11 @@ body {
 #content {
   vertical-align: top;
   padding: 16px;
-  padding-left: 16vw;
-  padding-right: 16vw;
+  padding-left: 18vw;
+  padding-right: 18vw;
 }
 #content-wrapper {
+  margin-top: 80px;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 16px;
   padding: 16px;
@@ -151,63 +149,7 @@ code p {
   background-image: url('/images/checkmark.png');
 }
 
-/* Page Overlays */
-#overlay-right,
-#overlay-left {
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  /* height: calc(100vh - 64px); */
-  padding-top: 80px;
-}
-#overlay-left {
-  position: fixed;
-  padding: 16px;
-  padding-left: 0;
-  display: block;
-  left: 0;
-  width: 16vw;
-  min-width: 128px;
-  overflow-x: auto;
-  overflow-y: auto;
-  scrollbar-color: red yellow;
-  background-color: rgba(64, 64, 64, 0.25);
-  font-weight: bold;
-}
-.options-link {
-  width: 100%;
-  height: 64px;
-  border-bottom-right-radius: 24px;
-  border-top-right-radius: 24px;
-  border: none;
-  background-color: transparent;
-  color: black;
-  text-align: left;
-  padding-left: 16px;
-  font-weight: 900;
-  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5),
-    1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5),
-    1px 1px 0 rgba(255, 255, 255, 0.5);
-}
-.options-link:focus {
-  outline: none;
-}
-
-#overlay-right {
-  right: 0;
-  width: 64px;
-  border-left: 1px solid rgb(160, 160, 160);
-  background-color: rgba(64, 64, 64, 0.25);
-  text-align: center;
-}
-
-#appbar a .icon {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
 #layout #header #nav,
-#layout #header #search,
 #layout #header #auth,
 #options,
 #content,
