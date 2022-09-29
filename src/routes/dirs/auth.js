@@ -127,6 +127,11 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/login', function (req, res) {
+    var ip =
+      request.headers['x-forwarded-for'] ||
+      request.socket.remoteAddress ||
+      null;
+
     let username = req.body.username;
     let password = req.body.password;
 
@@ -154,7 +159,7 @@ module.exports = function (express, app, connection) {
                   req.session.nickname = results[0].nickname;
                   req.session.pfp = results[0].pfp;
                   req.session.theme = results[0].theme;
-                  req.session.ip = req.socket.localAddress;
+                  req.session.ip = ip;
 
                   res.redirect('/account?tab=home');
                   // req.session.ip = ip;
@@ -407,6 +412,11 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/update-nickname', async function (req, res) {
+    var ip =
+      request.headers['x-forwarded-for'] ||
+      request.socket.remoteAddress ||
+      null;
+
     let new_nickname = req.body.new_nickname;
     let username = req.session.username;
 
@@ -414,7 +424,12 @@ module.exports = function (express, app, connection) {
     // console.log('username: ' + username);
     // console.log('req.session.loggedin: ' + req.session.loggedin);
 
-    if (new_nickname && username && req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
+    if (
+      new_nickname &&
+      username &&
+      req.session.loggedin == true &&
+      req.session.ip == ip
+    ) {
       try {
         await connection.query(
           'UPDATE accounts SET nickname = ? WHERE username = ?;',
@@ -459,6 +474,11 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/update-pfp', async function (req, res) {
+    var ip =
+      request.headers['x-forwarded-for'] ||
+      request.socket.remoteAddress ||
+      null;
+
     let new_pfp_path = req.body.new_pfp_path;
     let new_pfp_url = req.body.new_pfp_url;
     let username = req.session.username;
@@ -487,7 +507,12 @@ module.exports = function (express, app, connection) {
 
     function writePfp(new_pfp) {
       return new Promise((resolve) => {
-        if (new_pfp && username && req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
+        if (
+          new_pfp &&
+          username &&
+          req.session.loggedin == true &&
+          req.session.ip == ip
+        ) {
           try {
             connection.query(
               'UPDATE accounts SET pfp = ? WHERE username = ?;',
@@ -542,6 +567,11 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/update-theme', async function (req, res) {
+    var ip =
+      request.headers['x-forwarded-for'] ||
+      request.socket.remoteAddress ||
+      null;
+
     let new_theme = req.body.new_theme;
     let username = req.session.username;
 
@@ -549,7 +579,12 @@ module.exports = function (express, app, connection) {
     // console.log('username: ' + username);
     // console.log('req.session.loggedin: ' + req.session.loggedin);
 
-    if (new_theme && username && req.session.loggedin == true && req.session.ip == req.socket.localAddress) {
+    if (
+      new_theme &&
+      username &&
+      req.session.loggedin == true &&
+      req.session.ip == ip
+    ) {
       try {
         await connection.query(
           'UPDATE accounts SET theme = ? WHERE username = ?;',
