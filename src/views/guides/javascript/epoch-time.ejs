@@ -1,0 +1,59 @@
+<%- include('../../_layout/_meta/pagewrap-start') %>
+
+  <div id="content-wrapper">
+    <center>
+      <h4>Unix Epoch Time in Javascript</h4>
+    </center>
+    <hr>
+    This guide aims at converting Unix Epoch time (referred to throughout as simply 'Epoch time') into a human readable date using Javascript.  If you don't know what Unix Epoch time is, you can read about it <a target="_blank" href="https://www.epochconverter.com/#:~:text=days%2C%20hours%2C%20minutes-,What%20is%20epoch%20time%3F,-The%20Unix%20epoch">here</a>.
+    <hr>
+    I won't be going over how to acquire Epoch timestamps programmatically; this guide assumes you can already generate them and save them as variables.  If you don't, feel free to use the value presented below for testing purposes.
+    <code>
+      <p id="code1">
+        var timestamp = 1661463536;
+      </p>
+      <button 
+        id="copy1" 
+        onclick="copyToClipboard('#code1', 'copy1')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now we need to do a couple of things to this variable.  First, we need to convert it to milliseconds, and then we need to create a DateTime from that value.  Both can be done simultaneously using the following line of code.
+    <code>
+      <p id="code2">
+        let timestampAsDateTime = new Date(timestamp * 1000);
+      </p>
+      <button 
+        id="copy2" 
+        onclick="copyToClipboard('#code2', 'copy2')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now that we have the DateTime variable, we can do a couple different things with it.  If we need to generate legible output, we can call the toString() function for a uniform format or the toLocaleString() function for a much simpler format.  Try out the print statements below and see which you prefer.
+    <code>
+      <p id="code3">
+        console.log(timestamp.toString());
+        <br>
+        console.log(timestampAsDateTime.toString());
+        <br>
+        console.log(timestampAsDateTime.toLocaleString());
+      </p>
+      <button 
+        id="copy3" 
+        onclick="copyToClipboard('#code3', 'copy3')" 
+        class="copy-btn">
+      </button>
+    </code>
+    The output will include the Epoch time, the uniform time, and the local time, like the example below.
+    <code>
+      <p>
+        1661463536
+        <br>
+        Thu Aug 25 2022 14:38:56 GMT-0700 (Mountain Standard Time)
+        <br>
+        8/25/2022, 2:38:56 PM
+      </p>
+    </code>
+  </div>
+<%- include('../../_layout/_meta/pagewrap-end') %>
+
