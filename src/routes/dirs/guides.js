@@ -8,4 +8,14 @@ module.exports = function (express, app) {
       theme: req.session.theme,
     });
   });
+
+  app.get('/guides/css/pixel-calc', function (req, res) {
+    res.render('guides/css/pixel-calc', {
+      loggedin: req.session.loggedin,
+      username: req.session.username,
+      nickname: req.session.nickname,
+      pfp: req.session.pfp,
+      theme: req.session.theme,
+    });
+  });
 };

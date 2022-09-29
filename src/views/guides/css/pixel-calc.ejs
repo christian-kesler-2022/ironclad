@@ -1,0 +1,82 @@
+<%- include('../../_layout/_meta/pagewrap-start') %>
+
+    <div id="content-wrapper">
+        <center>
+            <h4>Pixel calc in CSS</h4>
+        </center>
+        <hr>
+        This guide aims at stepping up your CSS game, specifically as it relates to any property that can accept a pixel value.  Now, most of those properties can also accept a percentage of the viewport or parent element.   So, you can do any of the following in CSS:
+        <code>
+            <p id="code1">
+                .some-element {
+                    <br>&emsp;
+                    height: 100%; 
+                    <br>&emsp;
+                    width: 100vw;
+                    <br>&emsp;
+                    padding: 5vh;
+                    <br>&emsp;
+                    margin: 23px;
+                    <br>
+                }
+            </p>
+            <button 
+                id="copy1" 
+                onclick="copyToClipboard('#code1', 'copy1')" 
+                class="copy-btn">
+            </button>
+        </code>
+        The height will be set to as large a space as the parent element has room for, the width will be equal to the width of the screen you are using (aka the viewport), the padding (space between the border and the interior content) will be 5% of the viewport height, and the margin (space between the border and the exterior content) will be 23 pixels.  
+        <hr>
+        This is great and all for beginners, but there are some annoying limitations present.  In order to bypass those limitations, I present the following:
+        <code>
+            <p id="code2">
+                .some-element {
+                    <br>&emsp;
+                    height: calc(100% - 20vw); 
+                    <br>&emsp;
+                    width: calc(100vw - 80px);
+                    <br>&emsp;
+                    padding: calc(5vh + 10%);
+                    <br>&emsp;
+                    margin: calc(23px + 10px);
+                    <br>
+                }
+            </p>
+            <button 
+                id="copy2" 
+                onclick="copyToClipboard('#code2', 'copy2')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Now, the above example isn't all that practical; it's more to show what can be done.  Essentially, you can do a teeny bit of programming in CSS.  All of the variables like Xvw or X% all get converted into pixel values, and then mathematical operations can be performed on them.  Let's say the above element has a parent element that is 500 pixels tall is rendered on a device with a viewport that is 1000 pixels wide.  100% would equate to 500 pixels, and 20vw would equate to 200 (20% of 1000), leaving our element with a height of 300 pixels.  
+        <hr>
+        Yeah yeah, so what?  Why not just use pixels all the time or keep everything relative to the viewport?  I'll tell you why: mobile.  Mobile devices make web development way more complicated, because your pages have to work on a rectangle shape regardless of how it's oriented.  Even in landscape mode, the decreased resolution can leave your text bloated and floating off of other elements.  Let me walk you through an example of how this is useful.
+        <hr>
+        Let's say you have a content element and a header element.  You want the header to stay the same size and the content to take up the rest of the page, so you set the header to height:64px;.  It's really convenient to use a pixel value for the header height so that the images always have enough room, leaving the width as the only thing to dynamically account for.  Now you get to the content.  You want it to fill the rest of the page, so maybe something like 92% of the viewport will work on your computer.  Then you try it on another computer or a phone.  Suddenly the 64px height of the header isn't even close to 8% of the viewport height, leaving things clipping and janky.  You certainly can't make the entire page based on a pixel value because you have no idea what the resolution of the device your users have might be.  Well, why not just make the header relative to the viewport height too then?  Well, again, mobile causes problems here.  When you have a header that only takes up 8% of the height on a mobile device, it looks freakishly small.  Most headers on mobile need to be about 16% unless they are incredibly minimal, but 16% headers on desktop look gigantic.  So here you are, caught between a rock and a hard place.  
+        <hr>
+        That's where this calc function comes in.  You can keep the header at a fixed pixel rate (which will make it look good on desktop and mobile) and you can fill the rest of the page with the content element based on viewport height.  Check out the following example:
+        <code>
+            <p id="code3">
+                .my-header {
+                    <br>&emsp;
+                    height: 64px;
+                    <br>
+                }
+                <br><br>
+                .my-content {
+                    <br>&emsp;
+                    height: calc(100vh - 64px);
+                    <br>
+                }
+            </p>
+            <button 
+                id="copy3" 
+                onclick="copyToClipboard('#code3', 'copy3')" 
+                class="copy-btn">
+            </button>
+        </code>
+        This is just one way to use this simple but powerful CSS tool.  Hopefully you can see the benefit and start putting it into practice in your projects.
+    </div>
+    <%- include('../../_layout/_meta/pagewrap-end') %>
+
