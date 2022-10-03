@@ -48,8 +48,8 @@ module.exports = function (express, app) {
     });
   });
 
-  app.get('/guides/git/credential-helper', function (req, res) {
-    res.render('guides/git/credential-helper', {
+  app.get('/guides/git/getting-started', function (req, res) {
+    res.render('guides/git/getting-started', {
       loggedin: req.session.loggedin,
       username: req.session.username,
       nickname: req.session.nickname,
