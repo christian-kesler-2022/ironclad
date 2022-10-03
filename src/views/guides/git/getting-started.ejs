@@ -7,7 +7,7 @@
     <hr>
     Git allows you to track your project as it evolves, storing distributed versions for later recalls in order to preserve data.  This guide aims at getting setup and using git in a sample project.  
     <hr>
-    First, select a folder somewhere for your project.  This can be an existing folder with content or a new empty folder (although I almost always prefer the latter).  You'll need to navigate to that folder from within your OS's terminal.  Once there, you can initialize the local repository using the following command.
+    First, select a folder somewhere for your project.  This can be an existing folder with content or a new empty folder (I almost always prefer the latter).  You'll need to navigate to that folder from within your OS's terminal.  Once there, you can initialize the local repository using the following command.
     <code>
       <p id="code1">git init</p>
       <button 
@@ -34,7 +34,7 @@
         class="copy-btn">
       </button>
     </code>
-    Time to move onto the actual manipulation of the version controlled software.  In git, there are branches that can be created checked out which function as duplicates of the source code.  These duplicates can then be modified and tested in isolcation.  If the new material looks good, it can be merged back into the original default branch, but if the new material is a bust, you can just delete the branch.  But all of this relies on a central default branch to create from and merge back into.  In git, the default name of this branch is 'master', but many version control repository platforms like GitHub use 'main' instead.  You can use the following command to rename the default branch to 'main'.
+    Time to move onto the actual manipulation of the version controlled software.  In git, there are branches that can be created and checked out which function as duplicates of the source code.  These duplicates can then be modified and tested in isolation.  If the new material looks good, it can be merged back into the original default branch, but if the new material is a bust, you can just delete the branch.  All of this relies on a central default branch to create from and merge back into.  In git, the default name of this branch is 'master', but many version control repository platforms like GitHub use 'main' instead.  You can use the following command to rename the default branch to 'main'.
     <code>
       <p id="code3">git branch -m main<br>git checkout main</p>
       <button 

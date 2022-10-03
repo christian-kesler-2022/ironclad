@@ -25,9 +25,9 @@
         class="copy-btn">
       </button>
     </code>
-    And lastly we need to actually define the function.  The following works well for me, and even keeps the line breaks from the original text.  I found it on StackOverflow <a target="_blank" href="https://stackoverflow.com/questions/46041831/copy-to-clipboard-with-break-line">here</a>.  You can put this is a separate file or within some &lt;script&gt; tags.
+    And lastly we need to actually define the function.  The following works well for me, and even keeps the line breaks from the original text.  I found it on StackOverflow <a target="_blank" href="https://stackoverflow.com/questions/46041831/copy-to-clipboard-with-break-line">here</a> before adding my own changes that allow for the conversion of the html greater than and less than characters.  You can put this is a separate file or within some &lt;script&gt; tags.
     <code>
-      <p id="code3"><br>function copyToClipboard(element, copy) {<br>&emsp;var $temp = $("&lt;textarea&gt;");<br>&emsp;var brRegex = /<br\s*[\/]?>/gi;<br>&emsp;$("body").append($temp);<br>&emsp;$temp.val($(element).html().replace(brRegex, "\r\n")).select();<br>&emsp;document.execCommand("copy");<br>&emsp;$temp.remove();<br>&emsp;document.getElementById(copy).style.backgroundImage = "url('/images/checkmark.png')";<br>}</p>
+      <p id="code3"><br>function copyToClipboard(element, copy) {<br>&emsp;var $temp = $("&lt;textarea&gt;");<br>&emsp;var brRegex = /<br\s*[\/]?>/gi;<br>&emsp;$("body").append($temp);<br>&emsp;$temp.val($(element).html().replaceAll("&lt;", '<').replaceAll("&gt;", '>').replace(brRegex, "\r\n")).select();<br>&emsp;document.execCommand("copy");<br>&emsp;$temp.remove();<br>&emsp;document.getElementById(copy).style.backgroundImage = "url('/images/checkmark.png')";<br>}</p>
       <button 
         id="copy3" 
         onclick="copyToClipboard('p#code3', 'copy3')" 

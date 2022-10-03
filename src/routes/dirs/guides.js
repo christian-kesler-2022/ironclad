@@ -19,8 +19,8 @@ module.exports = function (express, app) {
     });
   });
 
-  app.get('/guides/javascript/epoch-time', function (req, res) {
-    res.render('guides/javascript/epoch-time', {
+  app.get('/guides/nodejs/epoch-time', function (req, res) {
+    res.render('guides/nodejs/epoch-time', {
       loggedin: req.session.loggedin,
       username: req.session.username,
       nickname: req.session.nickname,
@@ -28,6 +28,16 @@ module.exports = function (express, app) {
       theme: req.session.theme,
     });
   });
+  app.get('/guides/nodejs/xml-validation', function (req, res) {
+    res.render('guides/nodejs/xml-validation', {
+      loggedin: req.session.loggedin,
+      username: req.session.username,
+      nickname: req.session.nickname,
+      pfp: req.session.pfp,
+      theme: req.session.theme,
+    });
+  });
+
   app.get('/guides/javascript/copy-to-clipboard', function (req, res) {
     res.render('guides/javascript/copy-to-clipboard', {
       loggedin: req.session.loggedin,
@@ -50,16 +60,6 @@ module.exports = function (express, app) {
 
   app.get('/guides/git/getting-started', function (req, res) {
     res.render('guides/git/getting-started', {
-      loggedin: req.session.loggedin,
-      username: req.session.username,
-      nickname: req.session.nickname,
-      pfp: req.session.pfp,
-      theme: req.session.theme,
-    });
-  });
-
-  app.get('/guides/nodejs/xml-validation', function (req, res) {
-    res.render('guides/nodejs/xml-validation', {
       loggedin: req.session.loggedin,
       username: req.session.username,
       nickname: req.session.nickname,
