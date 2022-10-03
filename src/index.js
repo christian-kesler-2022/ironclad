@@ -1,7 +1,7 @@
 var express = require('express');
 
 // importing utils
-// const sqlinit = require('./utils/sqlinit.js');
+const sqlinit = require('./utils/sqlinit.js');
 const config = require('./utils/config.js');
 
 // importing routes
@@ -14,13 +14,13 @@ const guides = require('./routes/dirs/guides.js');
 var app = express();
 
 // initializaing utils
-// const connection = sqlinit.initialize();
+const connection = sqlinit.initialize();
 config(express, app);
 
 // initializing routes
 public(express, app);
 root(express, app);
-// auth(express, app, connection)
+auth(express, app, connection);
 guides(express, app);
 
 // starting server
