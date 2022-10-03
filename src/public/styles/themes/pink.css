@@ -1,30 +1,28 @@
-/* Background Primary */
+:root {
+  --header: #f07dea;
+  --buttons: #f94892;
+  --background: #ffabe1;
+  --text: #4c0033;
+}
 #layout #page,
 #searchfield {
-    background-color: #FFABE1;
+  background-color: var(--background);
 }
-
-/* Background Secondary */
 #searchgo,
 input,
 select {
-    background-color: #F94892;
+  background-color: var(--buttons);
 }
-
 .active-tab {
-    color: #F94892;
+  color: var(--buttons);
 }
-
-/* Text */
 #searchfield,
 body {
-    caret-color: #4C0033;
-    color: #4C0033;
+  caret-color: var(--text);
+  color: var(--text);
 }
-
-/* Header */
-#layout #header,
+#overlay-top,
 .dropdown,
 .active-tab {
-    background-color: #F07DEA;
+  background-color: var(--header);
 }

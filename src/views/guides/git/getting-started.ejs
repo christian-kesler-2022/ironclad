@@ -1,0 +1,75 @@
+<%- include('../../_layout/_meta/pagewrap-start') %>
+
+  <div id="content-wrapper">
+    <center>
+      <h4>Git: Getting Started</h4>
+    </center>
+    <hr>
+    Git allows you to track your project as it evolves, storing distributed versions for later recalls in order to preserve data.  This guide aims at getting setup and using git in a sample project.  
+    <hr>
+    First, select a folder somewhere for your project.  This can be an existing folder with content or a new empty folder (although I almost always prefer the latter).  You'll need to navigate to that folder from within your OS's terminal.  Once there, you can initialize the local repository using the following command.
+    <code>
+      <p id="code1">git init</p>
+      <button 
+        id="copy1" 
+        onclick="copyToClipboard('p#code1', 'copy1')" 
+        class="copy-btn">
+      </button>
+    </code>
+    If you look inside the current folder, there is a new hidden directory called .git where all the magic happens.  Don't worry about what goes on in that folder, that's all backend stuff for advanced users.  All that matters is that it works.  But before we start using git to manage our project, we need to handle some administrative stuff.  Git needs to know who you are when it logs your changes.  Use the following commands to store your user data.
+    <code>
+      <p id="code2">git config --global user.name "YOUR NAME HERE"<br>git config --global user.email "YOUR EMAIL HERE"</p>
+      <button 
+        id="copy2" 
+        onclick="copyToClipboard('p#code2', 'copy2')" 
+        class="copy-btn">
+      </button>
+    </code>
+    There is one more command that can be helpful if you push to secure repositories a lot, but it should only be used on computers you trust.  It's a built in credential helper that will remember your usernames and passwords, HOWEVER they are stored as plaintext within the filesystem.  If that's not something that bothers you, feel free to use the following command to avoid repasting access keys every hour.
+    <code>
+      <p id="code2">git config --global credential.helper store</p>
+      <button 
+        id="copy2" 
+        onclick="copyToClipboard('p#code2', 'copy2')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Time to move onto the actual manipulation of the version controlled software.  In git, there are branches that can be created checked out which function as duplicates of the source code.  These duplicates can then be modified and tested in isolcation.  If the new material looks good, it can be merged back into the original default branch, but if the new material is a bust, you can just delete the branch.  But all of this relies on a central default branch to create from and merge back into.  In git, the default name of this branch is 'master', but many version control repository platforms like GitHub use 'main' instead.  You can use the following command to rename the default branch to 'main'.
+    <code>
+      <p id="code3">git branch -m main<br>git checkout main</p>
+      <button 
+        id="copy3" 
+        onclick="copyToClipboard('p#code3', 'copy3')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now we need to make sure that all the current filestates are tracked.  Execute the following command to stage and commit all present changes on the main branch.
+    <code>
+      <p id="code4">git add .<br>git commit -m "Initial commit"</p>
+      <button 
+        id="copy4" 
+        onclick="copyToClipboard('p#code4', 'copy4')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Now let's make some changes to the source code.  Edit, delete, or create a file in the project repo.  After you've done that, the next command will tell you what changes have been made since the last commit.
+    <code>
+      <p id="code5">git status</p>
+      <button 
+        id="copy5" 
+        onclick="copyToClipboard('p#code5', 'copy5')" 
+        class="copy-btn">
+      </button>
+    </code>
+    Try to get familiar with the output as it can be helpful at times.  The next commands will solidify the changes you've made.  Make sure to replace the MESSAGE with a description of the changes you made.
+    <code>
+      <p id="code6">git add .<br>git commit -m "MESSAGE"</p>
+      <button 
+        id="copy6" 
+        onclick="copyToClipboard('p#code6', 'copy6')" 
+        class="copy-btn">
+      </button>
+    </code>
+    And there you have it, you've setup local git repository and committed new changes.  
+  </div>
+<%- include('../../_layout/_meta/pagewrap-end') %>
