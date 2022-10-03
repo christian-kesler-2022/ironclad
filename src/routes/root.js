@@ -14,10 +14,11 @@ module.exports = function (express, app) {
       theme: req.session.theme,
     });
   });
+
   app.get('/account', function (req, res) {
     var ip =
-      request.headers['x-forwarded-for'] ||
-      request.socket.remoteAddress ||
+      req.headers['x-forwarded-for'] ||
+      req.socket.remoteAddress ||
       null;
 
     const queryObject = url.parse(req.url, true).query;
