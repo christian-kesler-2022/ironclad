@@ -127,10 +127,7 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/login', function (req, res) {
-    var ip =
-      request.headers['x-forwarded-for'] ||
-      request.socket.remoteAddress ||
-      null;
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || null;
 
     let username = req.body.username;
     let password = req.body.password;
@@ -430,10 +427,7 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/update-nickname', async function (req, res) {
-    var ip =
-      request.headers['x-forwarded-for'] ||
-      request.socket.remoteAddress ||
-      null;
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || null;
 
     let new_nickname = req.body.new_nickname;
     let username = req.session.username;
@@ -492,10 +486,7 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/update-pfp', async function (req, res) {
-    var ip =
-      request.headers['x-forwarded-for'] ||
-      request.socket.remoteAddress ||
-      null;
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || null;
 
     let new_pfp_path = req.body.new_pfp_path;
     let new_pfp_url = req.body.new_pfp_url;
@@ -585,10 +576,7 @@ module.exports = function (express, app, connection) {
   });
 
   app.post('/auth/update-theme', async function (req, res) {
-    var ip =
-      request.headers['x-forwarded-for'] ||
-      request.socket.remoteAddress ||
-      null;
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || null;
 
     let new_theme = req.body.new_theme;
     let username = req.session.username;
