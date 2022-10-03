@@ -16,10 +16,7 @@ module.exports = function (express, app) {
   });
 
   app.get('/account', function (req, res) {
-    var ip =
-      req.headers['x-forwarded-for'] ||
-      req.socket.remoteAddress ||
-      null;
+    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || null;
 
     const queryObject = url.parse(req.url, true).query;
 

@@ -340,6 +340,12 @@ module.exports = function (express, app, connection) {
               });
             } else {
               res.render('auth/error', {
+                loggedin: req.session.loggedin,
+                username: req.session.username,
+                nickname: req.session.nickname,
+                pfp: req.session.pfp,
+                theme: req.session.theme,
+
                 red_message: 'That link has expired',
               });
             }
@@ -347,11 +353,23 @@ module.exports = function (express, app, connection) {
         );
       } catch (err) {
         res.render('auth/error', {
+          loggedin: req.session.loggedin,
+          username: req.session.username,
+          nickname: req.session.nickname,
+          pfp: req.session.pfp,
+          theme: req.session.theme,
+
           red_message: 'Something went wrong, please try again later',
         });
       }
     } else {
       res.render('auth/error', {
+        loggedin: req.session.loggedin,
+        username: req.session.username,
+        nickname: req.session.nickname,
+        pfp: req.session.pfp,
+        theme: req.session.theme,
+
         red_message: 'You must enter valid parameters',
       });
     }
