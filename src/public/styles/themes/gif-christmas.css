@@ -1,41 +1,41 @@
-/* Background Primary */
+:root {
+    --header: #0b952b;
+    --buttons: #f93b3b;
+    --background: url("https://i.pinimg.com/originals/4c/9b/f2/4c9bf25a605dcddfd12af2658fc7c5f7.gif");
+    --text: #053811;
+    --overlays: rgba(128, 128, 128, 0.75);
+}
+
+#overlay-right,
+#overlay-left,
+#content-wrapper {
+    background-color: var(--overlays);
+}
+
 #layout #page,
 #searchfield {
-    background-image: url("https://i.pinimg.com/originals/4c/9b/f2/4c9bf25a605dcddfd12af2658fc7c5f7.gif");
+    background: var(--background);
     background-size: cover;
 }
 
-/* Text */
-#searchfield,
-body,
-.account-tab {
-    font-weight: 900;
-    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
-    caret-color: #06283D;
-    color: #06283D;
-}
-
-/* Background Secondary */
 #searchgo,
 input,
 select {
-    background-color: #f93b3b;
+    background-color: var(--buttons);
 }
 
 .active-tab {
-    color: #247420;
+    color: var(--buttons);
 }
 
-/* Header */
-#layout #header,
+#searchfield,
+body {
+    caret-color: var(--text);
+    color: var(--text);
+}
+
+#overlay-top,
 .dropdown,
 .active-tab {
-    background-color: #0b952b;
-}
-
-
-
-#options-bar,
-#layout #page #appbar {
-    background-color: rgba(128, 128, 128, 0.75);
+    background-color: var(--header);
 }

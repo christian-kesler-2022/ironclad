@@ -1,34 +1,41 @@
-/* Background Primary */
+:root {
+    --header: #252c2e;
+    --buttons: #a33a23;
+    --background: url("https://64.media.tumblr.com/7e357e40946d7f7eccab04d4ee87e117/tumblr_nkqcyn5T5K1qciqqno4_1280.gif");
+    --text: #ff6200;
+    --overlays: rgba(0, 0, 0, 0.5);
+}
+
+#overlay-right,
+#overlay-left,
+#content-wrapper {
+    background-color: var(--overlays);
+}
+
 #layout #page,
 #searchfield {
-    background-image: url("https://64.media.tumblr.com/7e357e40946d7f7eccab04d4ee87e117/tumblr_nkqcyn5T5K1qciqqno4_1280.gif");
+    background: var(--background);
     background-size: cover;
 }
 
-/* Text */
-#searchfield,
-body,
-.account-tab {
-    font-weight: 900;
-    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
-    caret-color: #06283D;
-    color: #06283D;
-}
-
-/* Background Secondary */
 #searchgo,
 input,
 select {
-    background-color: #c63b1c;
+    background-color: var(--buttons);
 }
 
 .active-tab {
-    color: #db5400;
+    color: var(--buttons);
 }
 
-/* Header */
-#layout #header,
+#searchfield,
+body {
+    caret-color: var(--text);
+    color: var(--text);
+}
+
+#overlay-top,
 .dropdown,
 .active-tab {
-    background-color: #252c2e;
+    background-color: var(--header);
 }

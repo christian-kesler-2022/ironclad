@@ -1,34 +1,41 @@
-/* Background Primary */
+:root {
+    --header: #256D85;
+    --buttons: #31E1F7;
+    --background: url("https://i.pinimg.com/originals/4a/58/30/4a583012096c4fac38ad11c1d4b7205d.gif");
+    --text: #051138;
+    --overlays: rgba(128, 128, 128, 0.75);
+}
+
+#overlay-right,
+#overlay-left,
+#content-wrapper {
+    background-color: var(--overlays);
+}
+
 #layout #page,
 #searchfield {
-    background-image: url("https://i.pinimg.com/originals/4a/58/30/4a583012096c4fac38ad11c1d4b7205d.gif");
+    background: var(--background);
     background-size: cover;
 }
 
-/* Text */
-#searchfield,
-body,
-.account-tab {
-    font-weight: 900;
-    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
-    caret-color: #06283D;
-    color: #06283D;
-}
-
-/* Background Secondary */
 #searchgo,
 input,
 select {
-    background-color: #31E1F7;
+    background-color: var(--buttons);
 }
 
 .active-tab {
-    color: #31E1F7;
+    color: var(--buttons);
 }
 
-/* Header */
-#layout #header,
+#searchfield,
+body {
+    caret-color: var(--text);
+    color: var(--text);
+}
+
+#overlay-top,
 .dropdown,
 .active-tab {
-    background-color: #256D85;
+    background-color: var(--header);
 }

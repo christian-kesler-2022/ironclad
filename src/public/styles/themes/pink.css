@@ -3,24 +3,36 @@
   --buttons: #f94892;
   --background: #ffabe1;
   --text: #4c0033;
+  --overlays: rgba(128, 64, 128, 0.5);
 }
+
+#overlay-right,
+#overlay-left,
+#content-wrapper {
+  background-color: var(--overlays);
+}
+
 #layout #page,
 #searchfield {
   background-color: var(--background);
 }
+
 #searchgo,
 input,
 select {
   background-color: var(--buttons);
 }
+
 .active-tab {
   color: var(--buttons);
 }
+
 #searchfield,
 body {
   caret-color: var(--text);
   color: var(--text);
 }
+
 #overlay-top,
 .dropdown,
 .active-tab {

@@ -1,30 +1,40 @@
-/* Background Primary */
-#layout #page,
-#searchfield {
-    background-color: #E6B325;
+:root {
+    --header: #A47E3B;
+    --buttons: #EC994B;
+    --background: #E6B325;
+    --text: #61481C;
+    --overlays: rgba(128, 128, 128, 0.5);
 }
 
-/* Background Secondary */
+#overlay-right,
+#overlay-left,
+#content-wrapper {
+    background-color: var(--overlays);
+}
+
+#layout #page,
+#searchfield {
+    background-color: var(--background);
+}
+
 #searchgo,
 input,
 select {
-    background-color: #EC994B;
+    background-color: var(--buttons);
 }
 
 .active-tab {
-    color: #EC994B;
+    color: var(--buttons);
 }
 
-/* Text */
 #searchfield,
 body {
-    caret-color: #61481C;
-    color: #61481C;
+    caret-color: var(--text);
+    color: var(--text);
 }
 
-/* Header */
-#layout #header,
+#overlay-top,
 .dropdown,
 .active-tab {
-    background-color: #A47E3B;
+    background-color: var(--header);
 }

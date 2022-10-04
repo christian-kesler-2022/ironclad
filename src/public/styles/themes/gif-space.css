@@ -1,39 +1,41 @@
-/* Background Primary */
+:root {
+    --header: #25316d;
+    --buttons: #8758FF;
+    --background: url("https://img.itch.zone/aW1nLzU0Nzc4NDMuZ2lm/original/g1dIhn.gif");
+    --text: #300538;
+    --overlays: rgba(128, 128, 128, 0.5);
+}
+
+#overlay-right,
+#overlay-left,
+#content-wrapper {
+    background-color: var(--overlays);
+}
+
 #layout #page,
 #searchfield {
-    /* background-image: url("https://i.pinimg.com/originals/bf/fe/de/bffede1d81ebe6ddb2eb3033dc86ac68.gif"); */
-    /* background-image: url("https://acegif.com/wp-content/uploads/gif/outerspace-82.gif"); */
-    background-image: url("https://img.itch.zone/aW1nLzU0Nzc4NDMuZ2lm/original/g1dIhn.gif");
+    background: var(--background);
     background-size: cover;
-    /* background-color: #47B5FF; */
 }
 
-/* Text */
-#searchfield,
-body,
-.account-tab {
-    font-weight: 900;
-    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5), 1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 0.5);
-    caret-color: #06283D;
-    color: #06283D;
-
-}
-
-/* Background Secondary */
 #searchgo,
 input,
 select {
-    background-color: #8758FF;
+    background-color: var(--buttons);
 }
 
 .active-tab {
-    color: #8758FF;
+    color: var(--buttons);
 }
 
+#searchfield,
+body {
+    caret-color: var(--text);
+    color: var(--text);
+}
 
-/* Header */
-#layout #header,
+#overlay-top,
 .dropdown,
 .active-tab {
-    background-color: #25316D;
+    background-color: var(--header);
 }

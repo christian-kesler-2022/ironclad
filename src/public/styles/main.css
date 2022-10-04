@@ -23,11 +23,13 @@ body {
   width: 16vw;
   min-width: 128px;
 }
+
 #homeicon {
   max-height: 48px;
   width: auto;
   max-width: 128px;
 }
+
 /* ^^^^^^^^^^^^^^^^ */
 
 /* vvvvvvvvvvvvvvvv */
@@ -42,12 +44,15 @@ body {
   margin-right: 0;
   font-weight: 900;
 }
+
 #searchfield:focus {
   outline: none;
 }
+
 #searchform {
   display: inline-flex;
 }
+
 #searchgo {
   height: 32px;
   width: 40px;
@@ -56,46 +61,14 @@ body {
   border: none;
   color: transparent;
   margin-left: -8px;
-  background: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Google_Magnifying_Glass.svg')
-    no-repeat 4px 0px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Google_Magnifying_Glass.svg') no-repeat 4px 0px;
 }
+
 /* ^^^^^^^^^^^^^^^^ */
 
 /* vvvvvvvvvvvvvvvv */
 /* <td id="auth"> */
-#auth:hover .dropdown {
-  display: block;
-}
-.dropdown {
-  display: none;
-  position: absolute;
-  color: white;
-  right: 0;
-  padding: 16px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom-left-radius: 16px;
-  margin-top: 4px;
-  border-top: 1px solid grey;
-  width: 10vw;
-  min-width: 128px;
-}
-.auth-btn {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: transparent;
-  color: white;
-  border: none;
-  width: 100%;
-  height: auto;
-}
-.auth-btn,
-.auth-btn:active,
-.auth-btn:focus {
-  outline: none;
-}
+
 /* ^^^^^^^^^^^^^^^^ */
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
@@ -110,6 +83,7 @@ body {
   padding-left: 18vw;
   padding-right: 18vw;
 }
+
 #content-wrapper {
   margin-top: 80px;
   background-color: rgba(255, 255, 255, 0.75);
@@ -119,6 +93,7 @@ body {
   font-weight: 900;
   text-shadow: none;
 }
+
 code {
   background-color: black;
   padding: 16px;
@@ -129,10 +104,12 @@ code {
   border-radius: 4px;
   margin: 16px;
 }
+
 code p {
   width: 92%;
   /* white-space: pre-wrap; */
 }
+
 .copy-btn {
   width: 32px;
   height: 32px;
@@ -144,6 +121,7 @@ code p {
   outline: none;
   margin-left: auto;
 }
+
 .copy-btn:active {
   outline: none;
   background-image: url('/images/checkmark.png');

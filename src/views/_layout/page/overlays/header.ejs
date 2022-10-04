@@ -4,56 +4,44 @@
       <td class="left">
         <div style="display: flex; justify-content: left; align-items: center">
           <!-- Burger Menu -->
-          <img
-            class="icon icon-48"
-            src="/images/menu.png"
-            alt="Burger Menu"
-            style="margin-left: 16px; margin-right: 16px"
-            onclick="showOptions()"
-          />
+          <img class="icon icon-48" src="/images/menu.png" alt="Burger Menu"
+            style="margin-left: 16px; margin-right: 16px" onclick="showOptions()" />
           <!-- Homepage Link -->
           <center>
             <a href="/">
-              <img
-                id="homeicon"
+              <img id="homeicon"
                 src="https://gardenandgun.com/wp-content/uploads/2020/05/GGEmoji_Steel_1500x1500-1100x1100.png"
-                alt="Home Icon"
-                style="margin-left: 16px; margin-right: 16px"
-              />
+                alt="Home Icon" style="margin-left: 16px; margin-right: 16px" />
             </a>
           </center>
         </div>
       </td>
       <td class="center">
         <form id="searchform" action="/search" method="GET">
-          <input
-            id="searchfield"
-            name="query"
-            type="text"
-            placeholder="Search"
-          />
+          <input id="searchfield" name="query" type="text" placeholder="Search" />
           <input id="searchgo" type="submit" value="Go" />
         </form>
       </td>
       <td class="right">
-        <div style="display: flex; justify-content: right; align-items: center">
-          <img src="/images/security.svg" alt="Account" class="icon icon-48" onclick='window.open("/account?tab=home")'/>
+        <div id="auth">
+          <img src="/images/security.svg" alt="Account" class="icon icon-48" />
+          <div class="dropdown">
+            <% if ( loggedin==false || loggedin==undefined ) { %>
+              <a href="/auth/login">
+                <button class="auth-btn">Login</button>
+              </a>
+              <% } else { %>
+                <a href="/account?tab=home">
+                  <button class="auth-btn">Account</button>
+                </a>
+                <hr />
+                <form action="/auth/logout" method="POST">
+                  <input class="auth-btn" type="submit" value="Logout" />
+                </form>
+                <% } %>
+          </div>
         </div>
-        <div class="dropdown">
-          <% if ( loggedin==false || loggedin==undefined ) { %>
-          <a href="/auth/login">
-            <button class="auth-btn">Login</button>
-          </a>
-          <% } else { %>
-          <a href="/account?tab=home">
-            <button class="auth-btn">Account</button>
-          </a>
-          <hr />
-          <form action="/auth/logout" method="POST">
-            <input class="auth-btn" type="submit" value="Logout" />
-          </form>
-          <% } %>
-        </div>
+
       </td>
     </tr>
   </table>
