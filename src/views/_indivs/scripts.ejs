@@ -7,6 +7,16 @@
     function hideOptions() {
         document.getElementById('overlay-left').style.display = 'none';
     }
+    function toggleOptions() {
+        currentState = document.getElementById('overlay-left').style.display;
+
+        if (currentState == 'none') {
+            document.getElementById('overlay-left').style.display = 'block'
+        } else {
+            document.getElementById('overlay-left').style.display = 'none'
+        }
+    }
+
 
     // guide pages copy function
     function copyToClipboard(element, copy) {
@@ -46,4 +56,3 @@
     }
 
 </script>
-
