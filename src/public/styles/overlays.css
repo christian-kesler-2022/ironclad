@@ -106,7 +106,7 @@
 #overlay-left {
   padding: 16px;
   padding-left: 0;
-  display: block;
+  display: none;
   left: 0;
   width: 16vw;
   min-width: 128px;

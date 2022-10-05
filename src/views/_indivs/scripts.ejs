@@ -10,13 +10,12 @@
     function toggleOptions() {
         currentState = document.getElementById('overlay-left').style.display;
 
-        if (currentState == 'none') {
-            document.getElementById('overlay-left').style.display = 'block'
-        } else {
+        if (currentState == 'block') {
             document.getElementById('overlay-left').style.display = 'none'
+        } else {
+            document.getElementById('overlay-left').style.display = 'block'
         }
     }
-
 
     // guide pages copy function
     function copyToClipboard(element, copy) {

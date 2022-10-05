@@ -3,20 +3,20 @@ const mysql = require('mysql');
 var sqlt = {
   initialize: function () {
     // Connect to db on labs.play-with-docker
-    // var con = mysql.createConnection({
-    //   host: '172.17.0.2',
-    //   user: 'root',
-    //   password: 'secret',
-    //   database: `ironclad`,
-    // });
-
-    // Connect to db on local podman container
     var con = mysql.createConnection({
-      host: '10.88.0.2',
+      host: '172.17.0.2',
       user: 'root',
       password: 'secret',
       database: `ironclad`,
     });
+
+    // Connect to db on local podman container
+    // var con = mysql.createConnection({
+    //   host: '10.88.0.2',
+    //   user: 'root',
+    //   password: 'secret',
+    //   database: `ironclad`,
+    // });
 
     // con.query('CREATE SCHEMA `ironclad`;');
     try {
