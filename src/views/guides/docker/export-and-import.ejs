@@ -49,14 +49,14 @@
     </code>
     The last step involves running the actual container to verify everything worked as expected.
     <code>
-      <p id="code5">clear <br> docker run -d -p 1000:1000 -v /root/docker-offline/model:/src/model node-example-server</p>
+      <p id="code5">clear <br> docker run -d -p 3000:3000 -v /root/docker-offline/model:/src/model node-example-server</p>
       <button 
         id="copy5" 
         onclick="copyToClipboard('p#code5', 'copy5')" 
         class="copy-btn">
       </button>
     </code>
-    Now you can navigate to port 1000 and see the server working for yourself.  
+    Now you can navigate to port 3000 and see the server working for yourself.  
   </div>
 <%- include('../../_layout/_meta/pagewrap-end') %>
 
