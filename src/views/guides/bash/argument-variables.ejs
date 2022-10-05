@@ -1,0 +1,74 @@
+<%- include('../../_layout/_meta/pagewrap-start') %>
+
+    <div id="content-wrapper">
+        <center>
+            <h4>Argument Variables</h4>
+        </center>
+        <hr>
+        This guide aims at creating a bash script that takes arguments and utilizes those arguments as variables throughout the script.  Let's open the directory where we want our scripts to go and run the following command.
+        <code>
+            <p id="code1">touch my-script.sh</p>
+            <button 
+                id="copy1" 
+                onclick="copyToClipboard('p#code1', 'copy1')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Next you need to allow the system to execute your script as a program, which requires heightened permissions.  Use the following command to grant execution permissions.
+        <code>
+            <p id="code2">chmod +x my-script.sh</p>
+            <button 
+                id="copy2" 
+                onclick="copyToClipboard('p#code2', 'copy2')" 
+                class="copy-btn">
+            </button>
+        </code>
+        With setup out of the way, we can now start adding functionality to the script.  Open the script file in your text editor of choice (if you need a text editor, <a href="https://www.sublimetext.com/">Sublime</a> and <a href="https://atom.io/">Atom</a> are solid options) and add the following content.
+        <code>
+            <p id="code3">echo "Check me out, I'm a cool script"</p>
+            <button 
+                id="copy3" 
+                onclick="copyToClipboard('p#code3', 'copy3')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Save the file.  From the terminal, you can use the following command to actually execute your new script.
+        <code>
+            <p id="code4">bash my-script.sh</p>
+            <button 
+                id="copy4" 
+                onclick="copyToClipboard('p#code4', 'copy4')" 
+                class="copy-btn">
+            </button>
+        </code>
+        If everything is working correctly, you should see your output in the terminal.  Now that we have a working script, let's add arguments and use them as variables.  If you call the same script a second time passing in some arguments. . . 
+        <code>
+            <p id="code5">bash my-script.sh my-first-argument my-second-argument</p>
+            <button 
+                id="copy5" 
+                onclick="copyToClipboard('p#code5', 'copy5')" 
+                class="copy-btn">
+            </button>
+        </code>
+        you'll notice that the output is the same.  Even though we passed in arguments, we haven't told the script what to do with the arguments.  Head on back to your text editor and update to the following.
+        <code>
+            <p id="code6">echo "Check me out, I'm a cool script"<br>echo "Here's the first argument: $1"<br>echo "Here's the second argument: $2"</p>
+            <button 
+                id="copy6" 
+                onclick="copyToClipboard('p#code6', 'copy6')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Save it and return to your terminal to execute the following.
+        <code>
+            <p id="code7">bash my-script.sh pizza ninjas</p>
+            <button 
+                id="copy7" 
+                onclick="copyToClipboard('p#code7', 'copy7')" 
+                class="copy-btn">
+            </button>
+        </code>
+        Now the output should include the arguments passed in.  Shell scripts assign the arguments in order to incrementing values starting with 1, and can be invoked within the script via the dollar sign followed by their index.
+    </div>
+    <%- include('../../_layout/_meta/pagewrap-end') %>
+

@@ -14,8 +14,8 @@ const guides = require('./routes/dirs/guides.js');
 var app = express();
 
 // initializaing utils
-const connection = sqlinit.initialize();
-// var connection = null;
+// const connection = sqlinit.initialize();
+var connection = null;
 config(express, app);
 
 // initializing routes
